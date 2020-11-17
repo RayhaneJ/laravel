@@ -5,7 +5,7 @@ USE laravel_projet;
 
 create table if not exists dossiers
  (
-   id_doc char(32) not null  ,
+   id_doc bigint unsigned not null ,
    no_nanterre bigint unsigned not null  ,
    type_doc char(32) null  
    , primary key (id_doc) 
@@ -20,13 +20,10 @@ create table if not exists etudiants
    cv char(32) null  ,
    lettre_motiv char(32) null  ,
    classe char(32) null  ,
-   mdp char(32) null  ,
    prenom char(32) null  ,
    nom char(32) null  ,
    dt_naiss char(32) null  ,
-   adresse_mail char(32) null  ,
-   no_tel char(32) null  ,
-   type_user char(32) null  
+   no_tel char(32) null 
    , primary key (no_nanterre) 
  ) 
  comment = "";
@@ -34,15 +31,12 @@ create table if not exists etudiants
 
 create table if not exists jurys
  (
-   no_nanterre bigint unsigned not null  ,
+   no_nanterre bigint unsigned not null ,
    statut char(32) null  ,
-   mdp char(32) null  ,
    prenom char(32) null  ,
    nom char(32) null  ,
    dt_naiss char(32) null  ,
-   adresse_mail char(32) null  ,
-   no_tel char(32) null  ,
-   type_user char(32) null  
+   no_tel char(32) null 
    , primary key (no_nanterre) 
  ) 
  comment = "";
@@ -50,9 +44,7 @@ create table if not exists jurys
 
 create table if not exists entreprises
  (
-   id_entreprise char(32) not null  ,
-   mdp char(32) null  ,
-   adresse_mail char(32) null  ,
+   id_entreprise bigint unsigned not null ,
    no_tel char(32) null  ,
    no_rue char(32) null  ,
    nom_rue char(32) null  ,
@@ -65,8 +57,8 @@ create table if not exists entreprises
 
 create table if not exists offrestages
  (
-   id_stage char(32) not null  ,
-   id_entreprise char(32) not null  ,
+   id_stage bigint unsigned not null ,
+   id_entreprise bigint unsigned not null  ,
    titre_stage char(32) null  ,
    deb_stage char(32) null  ,
    fin_stage char(32) null  ,
@@ -79,15 +71,12 @@ create table if not exists offrestages
 
 create table if not exists tuteurs
  (
-   no_nanterre bigint unsigned not null  ,
+   no_nanterre bigint unsigned not null ,
    statut char(32) null  ,
-   mdp char(32) null  ,
    prenom char(32) null  ,
    nom char(32) null  ,
    dt_naiss char(32) null  ,
-   adresse_mail char(32) null  ,
-   no_tel char(32) null  ,
-   type_user char(32) null  
+   no_tel char(32) null 
    , primary key (no_nanterre) 
  ) 
  comment = "";
@@ -95,8 +84,8 @@ create table if not exists tuteurs
 
 create table if not exists juges
  (
-   no_nanterre bigint unsigned not null  ,
-   id_doc char(32) not null  
+   no_nanterre bigint unsigned not null ,
+   id_doc bigint unsigned not null  
    , primary key (no_nanterre,id_doc) 
  ) 
  comment = "";
@@ -105,7 +94,7 @@ create table if not exists juges
 create table if not exists postule
  (
    no_nanterre bigint unsigned not null  ,
-   id_stage char(32) not null  
+   id_stage bigint unsigned not null  
    , primary key (no_nanterre,id_stage) 
  ) 
  comment = "";
@@ -154,14 +143,18 @@ alter table postule
 
 //A mettre quand tu as fait la migration
 
+alter table entreprises 
+  add foreign key fk_etudiant_user (id_entreprise)
+      references users (id) ;
+
 alter table etudiants 
   add foreign key fk_etudiant_user (no_nanterre)
-      references users (no_nanterre) ;
+      references users (id) ;
 
 alter table jurys
   add foreign key fk_jury_user (no_nanterre)
-      references users (no_nanterre) ;
+      references users (id) ;
 
 alter table tuteurs 
   add foreign key fk_tuteur_user (no_nanterre)
-      references users (no_nanterre) ;
+      references users (id) ;
