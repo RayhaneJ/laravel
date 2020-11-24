@@ -14,7 +14,7 @@ class AddFkToEntreprises extends Migration
     public function up()
     {
         Schema::table('entreprises', function (Blueprint $table) {
-            $table->foreign('id_entreprise')->references('id')->on('users');
+            $table->foreign('id_entreprise')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

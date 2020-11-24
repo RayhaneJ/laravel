@@ -23,7 +23,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('nom');
             $table->string('dt_naiss');
             $table->string('no_tel');
-
+            
         });
     }
 

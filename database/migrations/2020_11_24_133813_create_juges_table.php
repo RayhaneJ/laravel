@@ -14,10 +14,9 @@ class CreateJugesTable extends Migration
     public function up()
     {
         Schema::create('juges', function (Blueprint $table) {
-            $table->unsignedBigInteger('no_nanterre');
-            $table->unsignedBigInteger('id_doc');
-            //$table->foreign('no_nanterre')->references('no_nanterre')->on('jurys');
-            //$table->foreign('id_doc')->references('id_doc')->on('dossiers');
+            $table->unsignedBigInteger('no_nanterre')->index();
+            $table->unsignedBigInteger('id_doc')->index();
+            
         });
     }
 

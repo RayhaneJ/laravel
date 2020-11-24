@@ -14,10 +14,9 @@ class CreatePostuleTable extends Migration
     public function up()
     {
         Schema::create('postule', function (Blueprint $table) {
-            $table->unsignedBigInteger('no_nanterre');
-            $table->unsignedBigInteger('id_stage');
-            //$table->foreign('no_nanterre')->references('no_nanterre')->on('etudiants');
-            //$table->foreign('id_stage')->references('id_stage')->on('offrestages');
+            $table->unsignedBigInteger('no_nanterre')->index();
+            $table->unsignedBigInteger('id_stage')->index();
+            
         });
     }
 

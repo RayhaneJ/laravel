@@ -14,8 +14,8 @@ class AddFkToJuges extends Migration
     public function up()
     {
         Schema::table('juges', function (Blueprint $table) {
-            $table->foreign('no_nanterre')->references('no_nanterre')->on('jurys');
-            $table->foreign('id_doc')->references('id_doc')->on('dossiers');
+            $table->foreign('no_nanterre')->references('no_nanterre')->on('jurys')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_doc')->references('id_doc')->on('dossiers')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

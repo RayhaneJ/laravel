@@ -14,7 +14,7 @@ class CreateOffrestagesTable extends Migration
     public function up()
     {
         Schema::create('offrestages', function (Blueprint $table) {
-            $table->id('id_stage');
+            $table->id('id_stage')->index();
             $table->unsignedBigInteger('id_entreprise');
             $table->string('titre_stage');
             $table->string('deb_stage');

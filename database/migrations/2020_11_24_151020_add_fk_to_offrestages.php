@@ -14,7 +14,7 @@ class AddFkToOffrestages extends Migration
     public function up()
     {
         Schema::table('offrestages', function (Blueprint $table) {
-            $table->foreign('id_entreprise')->references('id_entreprise')->on('entreprises');
+            $table->foreign('id_entreprise')->references('id_entreprise')->on('entreprises')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -14,13 +14,13 @@ class CreateTuteurTable extends Migration
     public function up()
     {
         Schema::create('tuteurs', function (Blueprint $table) {
-            $table->id('no_nanterre');
+            $table->id('no_nanterre')->index();
             $table->string('statut');
             $table->string('prenom');
             $table->string('nom');
             $table->string('dt_naiss');
             $table->string('no_tel');
-            //$table->foreign('no_nanterre')->references('id')->on('users');
+            
         });
     }
 

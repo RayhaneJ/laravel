@@ -14,8 +14,8 @@ class AddFkToPostule extends Migration
     public function up()
     {
         Schema::table('postule', function (Blueprint $table) {
-            $table->foreign('no_nanterre')->references('no_nanterre')->on('etudiants');
-            $table->foreign('id_stage')->references('id_stage')->on('offrestages');
+            $table->foreign('no_nanterre')->references('no_nanterre')->on('etudiants')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_stage')->references('id_stage')->on('offrestages')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

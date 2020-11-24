@@ -17,7 +17,7 @@ class CreateDossiersTable extends Migration
             $table->id('id_doc');
             $table->unsignedBigInteger('no_nanterre');
             $table->string('type_doc');
-            
+            //$table->foreign('no_nanterre')->references('no_nanterre')->on('etudiants')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

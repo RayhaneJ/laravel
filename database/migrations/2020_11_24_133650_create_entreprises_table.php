@@ -14,13 +14,13 @@ class CreateEntreprisesTable extends Migration
     public function up()
     {
         Schema::create('entreprises', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_entreprise');
+            $table->unsignedBigInteger('id_entreprise')->index();
             $table->string('no_tel');
             $table->string('no_rue');
             $table->string('nom_rue');
             $table->string('ville');
             $table->string('cd_postal');
-            //$table->foreign('id_entreprise')->references('id')->on('users');
+            
         });
     }
 

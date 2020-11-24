@@ -14,7 +14,7 @@ class AddFkToTuteurs extends Migration
     public function up()
     {
         Schema::table('tuteurs', function (Blueprint $table) {
-            $table->foreign('no_nanterre')->references('id')->on('users');
+            $table->foreign('no_nanterre')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
