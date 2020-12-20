@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '8.x-dev',
-    'version' => '8.9999999.9999999.9999999-dev',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => '4931af14006610bf8fd1f860cea1117c68133e94',
+    'reference' => 'c9283b1ec5e4b4611b94f56b12d4a4c8a70fde53',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -507,12 +507,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '8.x-dev',
-      'version' => '8.9999999.9999999.9999999-dev',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '4931af14006610bf8fd1f860cea1117c68133e94',
+      'reference' => 'c9283b1ec5e4b4611b94f56b12d4a4c8a70fde53',
     ),
     'laravel/sanctum' => 
     array (
@@ -531,6 +531,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '45884b526e10a88a1b179fa1a1a24d5468c668c2',
+    ),
+    'laravel/ui' => 
+    array (
+      'pretty_version' => 'v3.1.0',
+      'version' => '3.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '444072cb2f8baaa15172c5cde2bd30d188c3b7e7',
     ),
     'league/commonmark' => 
     array (
