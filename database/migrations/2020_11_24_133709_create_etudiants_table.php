@@ -15,9 +15,9 @@ class CreateEtudiantsTable extends Migration
     {
         Schema::create('etudiants', function (Blueprint $table) {
             $table->unsignedBigInteger('no_nanterre')->index();
-            $table->unsignedBigInteger('no_nanterre_1');
-            $table->string('cv');
-            $table->string('lettre_motiv');
+            $table->unsignedBigInteger('no_nanterre_1')->nullable();
+            $table->string('cv')->nullable();
+            $table->string('lettre_motiv')->nullable();
             $table->string('classe');
             $table->string('prenom');
             $table->string('nom');

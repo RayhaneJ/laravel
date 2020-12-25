@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Etudiant extends Model
+class Jury extends Model
 {
-    public $timestamps = false;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -14,16 +14,10 @@ class Etudiant extends Model
      */
     protected $fillable = [
         'no_nanterre',
-        'no_nanterre_1',
         'prenom',
         'nom',
         'dt_naiss',
         'no_tel',
-        'classe'
+        'statut'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }

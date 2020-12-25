@@ -63,8 +63,8 @@
 						<div x-show.transition.in="step === 2 && (role==='et' || role==='tu' || role==='ju')" class="space-y-4">
 							<div class="rounded-md grid grid-flow-col auto-cols-max flex justify-between">
 								<div>
-									<label for="name" class="sr-only">Nom</label>
-									<input id="name" name="name" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nom">
+									<label for="nom" class="sr-only">Nom</label>
+									<input id="nom" name="nom" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nom">
 								</div>
 								<div>
 									<label for="prenom" class="sr-only">Prenom</label>
@@ -87,17 +87,13 @@
 							</div>
 							<div>
 								<label for="tel" class="sr-only">Telephone</label>
-								<input id="tel" name="tel" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Téléphone">
+								<input id="tel" name="telUser" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Téléphone">
 							</div>
 						</div>
 						<div x-show.transition.in="step === 2 && role==='en'" class="space-y-4">
 							<div>
 								<label for="tel" class="sr-only">Telephone</label>
-								<input id="tel" name="tel" type="tel" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Téléphone">
-							</div>
-							<div>
-								<label for="tel" class="sr-only">Nom</label>
-								<input id="nom" name="nom" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nom">
+								<input id="tel" name="telEntreprise" type="tel" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Téléphone">
 							</div>
 							<div>
 								<label for="ville" class="sr-only">Ville</label>
