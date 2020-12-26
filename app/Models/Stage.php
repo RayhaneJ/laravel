@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Jury extends Model
+class Stage extends Model
 {
-    protected $table = 'jurys';
+    protected $table = 'offrestages';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -14,11 +14,11 @@ class Jury extends Model
      * @var array
      */
     protected $fillable = [
-        'no_nanterre',
-        'prenom',
-        'nom',
-        'dt_naiss',
-        'no_tel',
-        'statut'
+        'id_entreprise',
+        'titre_stage',
+        'deb_stage',
+        'fin_stage',
+        'duree',
+        'desc_stage'
     ];
 }

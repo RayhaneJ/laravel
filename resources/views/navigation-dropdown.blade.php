@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,6 +52,22 @@
                             {{ __('Profile') }}
                         </x-jet-dropdown-link>
 
+                        @if (Auth::user()->hasRole('et'))
+                            <x-jet-dropdown-link href="{{ route('stages') }}">
+                                {{ __('Stages') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('monStage', Auth::user()->id) }}">
+                                {{ __('Mon stage') }}
+                            </x-jet-dropdown-link>
+                        @endif
+
+                        @if (Auth::user()->hasRole('en'))
+                            <x-jet-dropdown-link href="{{ route('createStage') }}">
+                                {{ __('Ajouter') }}
+                            </x-jet-dropdown-link>
+                        @endif
+
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
                                 {{ __('API Tokens') }}
@@ -87,6 +106,8 @@
 
                             <div class="border-t border-gray-100"></div>
                         @endif
+
+                        
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

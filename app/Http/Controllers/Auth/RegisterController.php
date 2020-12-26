@@ -56,7 +56,9 @@ class RegisterController extends Controller
         switch($data['role']) {
             case "et":
                 return $this->validateStudent($data);
-            case "ju" || "tu":
+            case "ju":
+                return $this->validateTeacher($data);
+            case "tu":
                 return $this->validateTeacher($data);
             case "en":
                 return $this->validateEnterprise($data);

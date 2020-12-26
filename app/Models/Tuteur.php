@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tuteur extends Model
 {
-
+    protected $table = 'tuteurs';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *

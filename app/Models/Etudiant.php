@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Etudiant extends Model
 {
+    protected $table = 'etudiants';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -22,8 +23,4 @@ class Etudiant extends Model
         'classe'
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
