@@ -16,7 +16,7 @@ class CreatePostuleTable extends Migration
         Schema::create('postule', function (Blueprint $table) {
             $table->unsignedBigInteger('no_nanterre')->index();
             $table->unsignedBigInteger('id_stage')->index();
-            
+            $table->unique('no_nanterre', 'id_stage');
         });
     }
 

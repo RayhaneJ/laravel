@@ -34,3 +34,7 @@ Route::get('/stages/create', [App\Http\Controllers\StagesController::class, 'cre
 Route::post('/stages/store', [App\Http\Controllers\StagesController::class, 'store'])->name('storeStage');
 
 Route::get('/stage/{id}', [App\Http\Controllers\StagesController::class, 'show'])->name('monStage');
+
+Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store'])->name('postule');
+
+Route::delete('/postule/delete', [App\Http\Controllers\PostuleController::class, 'destroy'])->name('postuleDelete');

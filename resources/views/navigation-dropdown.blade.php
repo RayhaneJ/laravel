@@ -66,6 +66,10 @@
                             <x-jet-dropdown-link href="{{ route('createStage') }}">
                                 {{ __('Ajouter') }}
                             </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('createStage') }}">
+                                {{ __('Candidatures') }}
+                            </x-jet-dropdown-link>
                         @endif
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Stage;
+use App\Models\Postule;
+use Auth;
 
 class StagesController extends Controller
 {
@@ -24,7 +26,10 @@ class StagesController extends Controller
      */
     public function index()
     {
-        return view('stages');
+        $stages = Stage::paginate(6);
+        $postule = Postule::where('no_nanterre', Auth::user()->id)->get();
+
+        return view('stages', compact('stages'))->with('postules', $postule);
     }
 
     public function show($id)
@@ -38,7 +43,7 @@ class StagesController extends Controller
     }
 
     public function store(Request $request){
-        $validated = $request->validate([
+        $request->validate([
             'titre_stage' => 'required|unique:offrestages|max:255',
             'description' => 'required',
             'dateDebut' => 'required',
@@ -54,5 +59,7 @@ class StagesController extends Controller
             'fin_stage' => $request->dateFin,
             'duree' => $request->duree,
         ]); 
+
+        return redirect('dashboard')->with('success', "L'offre de stage a bien été ajoutée"); ;
     }
 }

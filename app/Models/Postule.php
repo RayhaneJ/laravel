@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Entreprise extends Model
+class Postule extends Model
 {
-    protected $table = 'entreprises';
-    protected $primaryKey = 'id_entreprise';
+    protected $table = 'postule';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -15,11 +14,7 @@ class Entreprise extends Model
      * @var array
      */
     protected $fillable = [
-        'id_entreprise',
-        'no_tel',
-        'no_rue',
-        'nom_rue',
-        'ville',
-        'cd_postal'
+        'no_nanterre',
+        'id_stage',
     ];
 }

@@ -21,4 +21,12 @@ class Stage extends Model
         'duree',
         'desc_stage'
     ];
+
+    public function entreprise(){
+        return $this->belongsTo('App\Models\Entreprise', 'id_entreprise');
+    }
+
+    public function postule(){
+        return $this->onet('App\Models\Postule', 'id_entreprise');
+    }
 }
