@@ -98,7 +98,7 @@
             </div>
           </div>
           <div class="ml-4">
-          <a href="{{ route('monStage', Auth::user()->id) }}">
+          <a href="{{ route('monStage')  }}">
           <dt class="text-lg leading-6 font-medium text-gray-900">
               Mon stage
               
@@ -123,7 +123,7 @@
             </div>
           </div>
           <div class="ml-4">
-          <a href="{{ route('monStage', Auth::user()->id) }}">
+          <a href="{{ route('candidatures') }}">
           <dt class="text-lg leading-6 font-medium text-gray-900">
               Candidatures
               
@@ -137,6 +137,7 @@
         </div>
         @endif
 
+        @if (Auth::user()->hasRole('et'))
         <div class="flex">
           <div class="flex-shrink-0">
             <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
@@ -147,14 +148,18 @@
             </div>
           </div>
           <div class="ml-4">
-            <dt class="text-lg leading-6 font-medium text-gray-900">
-              Transfers are instant
+          <a href="{{ route('mescandidatures') }}">
+          <dt class="text-lg leading-6 font-medium text-gray-900">
+              Mes Candidatures
+              
             </dt>
+            </a>
             <dd class="mt-2 text-base text-gray-500">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              Consultez les offres de stages auxquels vous avez postulez. 
             </dd>
           </div>
         </div>
+        @endif
 
         <div class="flex">
           <div class="flex-shrink-0">

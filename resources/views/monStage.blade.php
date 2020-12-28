@@ -5,13 +5,14 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Stages') }}
+            {{ __('Mon stage') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            @if (count($stagiaires) > 0)
 			<!-- component -->
 <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -109,6 +110,22 @@
     </dl>
   </div>
 </div>
+@else 
+<div class="flex bg-gray-100 py-24 justify-center">
+    <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-bold">Aucun stages</div>
+        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de stage, n'attendez plus et commencez à postulez dès 
+        aujourd'hui.
+        </div>
+        <div class="mt-6 flex justify-center h-12 relative">
+        <a href="{{ route('stages') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
+        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
+        Découvrir les offres
+        </a>
+        </div>
+    </div>
+</div>
+@endif
 
 
 

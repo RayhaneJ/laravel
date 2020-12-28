@@ -5,7 +5,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Les offres de stages') }}
+            {{ __('Candidatures') }}
         </h2>
     </x-slot>
 
@@ -19,7 +19,7 @@
         <div class="flex justify-between container mx-auto">
             <div class="w-full lg:w-12/12">
                 <div class="flex items-center justify-between">
-                    <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Les offres de stages</h1>
+                    <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Vos candidatures en attentes</h1>
                     <div>
                         <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                             <option>Latest</option>
@@ -27,7 +27,7 @@
                         </select>
                     </div>
                 </div>
-                @foreach ($stages as $stage)
+                @foreach ($postules as $postule)
                     <div class="mt-6">
                     <div class="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
                         <div class="flex justify-between items-center"><span class="font-light text-gray-600">Jun 1,
@@ -35,45 +35,21 @@
                                 class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500">Laravel</a>
                         </div>
                         <div class="mt-2"><a href="#" class="text-2xl text-gray-700 font-bold hover:underline">
-                           {{ $stage->titre_stage }}
+                           {{ $postule->stage['titre_stage'] }}
                         </a>
-                            <p class="mt-2 text-gray-600">{{ $stage->desc_stage }}</p>
+                            <p class="mt-2 text-gray-600">{{ $postule->stage['desc_stage'] }}</p>
                         </div>
                         <div class="flex justify-between items-center mt-4">
                         <form id="ajaxform" > 
-                        @if (count($postules) > 0)
-                        @foreach($postules as $postule)
-                            @if($postule->id_stage == $stage->id_stage)
-                             <?php $isPresent = true ?>
-                             @break
-                            @else
-                             <?php $isPresent = false ?>
-                            @endif                
-                        @endforeach 
-                            @if($isPresent==true)
                             <a class="postuleDelete" href=""
-                                class="text-blue-500 hover:underline" data-id="{{ $stage->id_stage }}">
+                                class="text-blue-500 hover:underline" data-id="{{ $postule->stages['id_stage'] }}">
                                 En attente
-                            </a>
-                            @else 
-                            <a class="postuleStore" href=""
-                                class="text-blue-500 hover:underline" data-id="{{ $stage->id_stage }}">
-                                Postulez
-                            </a>
-                            @endif 
-                        @else
-                        
-                        <a class="postuleStore" href=""
-                                class="text-blue-500 hover:underline" data-id="{{ $stage->id_stage }}">
-                                Postulez
-                            </a>
-                        @endif
-                       
+                            </a>                  
                         </form>
                             <div><a href="#" class="flex items-center"><img
                                         src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
                                         alt="avatar" class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block">
-                                    <h1 class="text-gray-700 font-bold hover:underline">{{ $stage->entreprise['id_entreprise'] }}</h1>
+                                    <h1 class="text-gray-700 font-bold hover:underline">{{ $postule->stage->entreprise['id_entreprise'] }}</h1>
                                 </a></div>
                         </div>
                     </div>
@@ -81,7 +57,7 @@
                 @endforeach
 
                 <div class="mt-8">
-                        {!! $stages->links() !!}
+                        {!! $postules->links() !!}
                 </div>
             </div>
            

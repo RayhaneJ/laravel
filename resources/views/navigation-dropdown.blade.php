@@ -57,9 +57,10 @@
                                 {{ __('Stages') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('monStage', Auth::user()->id) }}">
-                                {{ __('Mon stage') }}
+                            <x-jet-dropdown-link href="{{ route('mescandidatures') }}">
+                                {{ __('Mes candidatures') }}
                             </x-jet-dropdown-link>
+
                         @endif
 
                         @if (Auth::user()->hasRole('en'))
@@ -67,7 +68,7 @@
                                 {{ __('Ajouter') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('createStage') }}">
+                            <x-jet-dropdown-link href="{{ route('candidatures') }}">
                                 {{ __('Candidatures') }}
                             </x-jet-dropdown-link>
                         @endif

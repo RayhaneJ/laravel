@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostuleTable extends Migration
+class CreateCandidaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePostuleTable extends Migration
      */
     public function up()
     {
-        Schema::create('postule', function (Blueprint $table) {
+        Schema::create('candidatures', function (Blueprint $table) {
             $table->unsignedBigInteger('no_nanterre')->index();
             $table->unsignedBigInteger('id_stage')->index();
         });
@@ -26,6 +26,6 @@ class CreatePostuleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postule');
+        Schema::dropIfExists('candidatures');
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stage extends Model
 {
     protected $table = 'offrestages';
+    protected $primaryKey = 'id_stage';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -26,7 +27,4 @@ class Stage extends Model
         return $this->belongsTo('App\Models\Entreprise', 'id_entreprise');
     }
 
-    public function postule(){
-        return $this->onet('App\Models\Postule', 'id_entreprise');
-    }
 }

@@ -33,7 +33,11 @@ Route::get('/stages/create', [App\Http\Controllers\StagesController::class, 'cre
 
 Route::post('/stages/store', [App\Http\Controllers\StagesController::class, 'store'])->name('storeStage');
 
-Route::get('/stage/{id}', [App\Http\Controllers\StagesController::class, 'show'])->name('monStage');
+Route::get('/stage', [App\Http\Controllers\StagiairesController::class, 'show'])->name('monStage');
+
+Route::get('/candidatures/consulte', [App\Http\Controllers\PostuleController::class, 'show'])->name('mescandidatures');
+
+Route::get('/candidatures', [App\Http\Controllers\PostuleController::class, 'index'])->name('candidatures');
 
 Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store'])->name('postule');
 
