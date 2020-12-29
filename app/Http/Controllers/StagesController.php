@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Stage;
 use App\Models\Postule;
 use App\Models\Candidature;
+use App\Models\Stagiaire;
 use Auth;
 
 class StagesController extends Controller
@@ -28,7 +29,9 @@ class StagesController extends Controller
     public function index()
     {
         $stages = Stage::whereNotIn('id_stage', function($query2) {
-            $query2->select('id_stage')->from(with(new Candidature)->getTable());})->paginate(6);
+            $query2->select('id_stage')->from(with(new Candidature)->getTable());})
+            ->whereNotIn('id_stage', function($query3) {
+                $query3->select('id_stage')->from(with(new Stagiaire)->getTable());})->paginate(6);
         $postule = Postule::where('no_nanterre', Auth::user()->id)->get();
 
         return view('stages', compact('stages'))->with('postules', $postule);
@@ -62,6 +65,6 @@ class StagesController extends Controller
             'duree' => $request->duree,
         ]); 
 
-        return redirect('dashboard')->with('success', "L'offre de stage a bien été ajoutée"); ;
+        return redirect('dashboard')->with('success', "L'offre de stage a bien été ajoutée"); 
     }
 }

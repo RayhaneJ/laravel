@@ -29,4 +29,13 @@ class Postule extends Model
     public function etudiant(){
         return $this->belongsTo('App\Models\Etudiant', 'no_nanterre');
     }
+
+    public function isAccepted(){
+        if(Candidature::where('no_nanterre', $this->no_nanterre)->where('id_stage', $this->id_stage)->exists()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

@@ -19,9 +19,5 @@ class EtudiantController extends Controller
         $this->middleware('auth');
     }
 
-    public function show($id){
-        $etudiant = Etudiant::where('no_nanterre', $id);
 
-        return view('candidatureProfile')->with('etudiant', $etudiant);
-    }
 }

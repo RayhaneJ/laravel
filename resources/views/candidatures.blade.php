@@ -17,7 +17,6 @@
     <div id="container" class="w-4/5 mx-auto">
     <div class="flex flex-col sm:flex-row">
       @foreach($candidatures as $candidature)
-      {{ $candidature->stage['titre_stage'] }}
       @if($loop->iteration % 5 == 0)  
 </div>
 </div>
@@ -50,7 +49,7 @@
           <div class="mb-3">
             <img
               class="w-auto mx-auto rounded-full"
-              src= "{{ $candidature->etudiant->user['profile_photo_path'] }}"
+              src= "{{ $candidature->etudiant->user['profile_photo_url'] }}"
               alt=""
             />
           </div>

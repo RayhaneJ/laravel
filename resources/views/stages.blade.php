@@ -14,6 +14,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
 <!-- component -->
+@if(count($stages) > 0)
 <div class="bg-gray-100 overflow-x-hidden">
     <div class="px-6 py-8">
         <div class="flex justify-between container mx-auto">
@@ -89,6 +90,15 @@
     </div>
 
 </div>
+@else 
+<div class="flex bg-gray-100 py-24 justify-center">
+    <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-bold">Aucunes offre de stage</div>
+        <div class="text-xl font-normal mt-4">Aucun entreprise n'a encore déposez d'offre de stage, revenez plus tard.
+        </div>
+    </div>
+</div>
+@endif
 
 
 

@@ -21,7 +21,6 @@ class CreateOffrestagesTable extends Migration
             $table->string('fin_stage');
             $table->string('duree');
             $table->string('desc_stage');
-            //$table->foreign('id_entreprise')->references('id_entreprise')->on('entreprises');
         });
     }
 

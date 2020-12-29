@@ -159,7 +159,6 @@
             </dd>
           </div>
         </div>
-        @endif
 
         <div class="flex">
           <div class="flex-shrink-0">
@@ -171,14 +170,20 @@
             </div>
           </div>
           <div class="ml-4">
-            <dt class="text-lg leading-6 font-medium text-gray-900">
-              Mobile notifications
+          <a href="{{ route('mesCandidaturesRetenues') }}">
+          <dt class="text-lg leading-6 font-medium text-gray-900">
+              Candidatures retenues
             </dt>
+            </a>
             <dd class="mt-2 text-base text-gray-500">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              Consultez vos candidatures retenues pour les offres de stages auxquels vous avez postulez.
             </dd>
           </div>
         </div>
+
+        @endif
+
+        
       </dl>
     </div>
   </div>

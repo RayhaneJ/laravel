@@ -17,4 +17,8 @@ class Candidature extends Model
         'no_nanterre',
         'id_stage',
     ];
+
+    public function stage(){
+        return $this->belongsTo('App\Models\Stage', 'id_stage');
+    }
 }

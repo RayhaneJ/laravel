@@ -27,9 +27,13 @@ class CandidatureController extends Controller
         ]); 
     }
 
+    public function index(){
+        $candidaturesAttente = Candidature::where('no_nanterre', Auth::user()->id)->paginate(8);
+        return view('mesCandidaturesEnAttente', compact('candidaturesAttente'));
+    }
+
     public function show($id, $stage){
         $etudiant = Etudiant::where('no_nanterre', $id)->first();
-
         return view('candidatureProfile')->with('etudiant', $etudiant)->with('stage', $stage);
     }
 }

@@ -16,5 +16,8 @@ class Stagiaire extends Model
     protected $fillable = [
         'no_nanterre',
         'id_stage',
+        'id_doc',
+        'id_mission',
+        'id_remarque',
     ];
 }

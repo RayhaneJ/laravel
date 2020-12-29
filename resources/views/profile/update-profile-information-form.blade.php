@@ -42,6 +42,8 @@
                     {{ __('Select A New Photo') }}
                 </x-jet-secondary-button>
 
+                
+
                 @if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Remove Photo') }}
@@ -52,6 +54,18 @@
             </div>
         @endif
 
+        @if(Auth::user()->hasRole('et'))
+        <div class="col-span-6 sm:col-span-4 w-4/6">
+        <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                    {{ __('Déposez LM') }}
+                </x-jet-secondary-button>
+
+        <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                    {{ __('Déposez CV') }}
+                </x-jet-secondary-button>
+        </div>
+        @endif
+        
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -65,6 +79,8 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        
     </x-slot>
 
     <x-slot name="actions">
