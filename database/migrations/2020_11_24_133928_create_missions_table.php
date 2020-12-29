@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJugesTable extends Migration
+class CreateMissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateJugesTable extends Migration
      */
     public function up()
     {
-        Schema::create('juges', function (Blueprint $table) {
-            $table->unsignedBigInteger('no_nanterre')->index();
-            $table->unsignedBigInteger('id_doc')->index();
-            
+        Schema::create('missions', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_mission')->index();
+            $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('mission');
         });
     }
 
@@ -27,6 +27,6 @@ class CreateJugesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('juges');
+        Schema::dropIfExists('missions');
     }
 }

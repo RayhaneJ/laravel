@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tuteur extends Model
 {
     protected $table = 'tuteurs';
+    protected $primaryKey = 'no_nanterre';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -21,4 +22,8 @@ class Tuteur extends Model
         'no_tel',
         'statut'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'no_nanterre');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Stage;
 use App\Models\Postule;
+use App\Models\Candidature;
 use Auth;
 
 class StagesController extends Controller
@@ -26,7 +27,8 @@ class StagesController extends Controller
      */
     public function index()
     {
-        $stages = Stage::paginate(6);
+        $stages = Stage::whereNotIn('id_stage', function($query2) {
+            $query2->select('id_stage')->from(with(new Candidature)->getTable());})->paginate(6);
         $postule = Postule::where('no_nanterre', Auth::user()->id)->get();
 
         return view('stages', compact('stages'))->with('postules', $postule);

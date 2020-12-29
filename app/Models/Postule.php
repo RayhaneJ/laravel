@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Candidature;
+use DB;
+use Log;
 
 class Postule extends Model
 {

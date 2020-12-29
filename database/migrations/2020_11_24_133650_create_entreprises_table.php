@@ -20,7 +20,6 @@ class CreateEntreprisesTable extends Migration
             $table->string('nom_rue');
             $table->string('ville');
             $table->string('cd_postal');
-            
         });
     }
 

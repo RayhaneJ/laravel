@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFkToDossiers extends Migration
+class AddFkToRemarques extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddFkToDossiers extends Migration
      */
     public function up()
     {
-        Schema::table('dossiers', function (Blueprint $table) {
-            $table->foreign('no_nanterre')->references('no_nanterre')->on('etudiants')->onDelete('cascade')->onUpdate('cascade');
+        Schema::table('remarques', function (Blueprint $table) {
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
@@ -25,7 +25,7 @@ class AddFkToDossiers extends Migration
      */
     public function down()
     {
-        Schema::table('dossiers', function (Blueprint $table) {
+        Schema::table('remarques', function (Blueprint $table) {
             //
         });
     }

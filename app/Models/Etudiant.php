@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Etudiant extends Model
 {
     protected $table = 'etudiants';
+    protected $primaryKey = 'no_nanterre';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -23,7 +24,11 @@ class Etudiant extends Model
         'classe'
     ];
 
-    public function etudiant(){
-        return $this->belongsTo('App\Models\User', 'id');
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'no_nanterre');
+    }
+
+    public function tuteur() {
+        return $this->belongsTo('App\Models\Tuteur', 'no_nanterre_1');
     }
 }

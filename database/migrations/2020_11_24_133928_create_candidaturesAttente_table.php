@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStagiaireTable extends Migration
+class CreateCandidaturesAttenteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateStagiaireTable extends Migration
      */
     public function up()
     {
-        Schema::create('stagiaires', function (Blueprint $table) {
+        Schema::create('candidaturesAttente', function (Blueprint $table) {
             $table->unsignedBigInteger('no_nanterre')->index();
             $table->unsignedBigInteger('id_stage')->index();
-            $table->unsignedBigInteger('id_doc');
-            $table->unsignedBigInteger('id_mission');
-            $table->unsignedBigInteger('id_remarque');
         });
     }
 
@@ -29,6 +26,6 @@ class CreateStagiaireTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stagiaires');
+        Schema::dropIfExists('candidaturesAttente');
     }
 }

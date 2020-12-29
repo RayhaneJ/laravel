@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Postule;
 use App\Models\Stage;
-use App\Models\Etudiant;
+use App\Models\Candidature;
 use Auth;
 
 
@@ -33,11 +33,11 @@ class PostuleController extends Controller
             $query->select('id_stage')
             ->from(with(new Stage)->getTable())
             ->where('id_entreprise', Auth::user()->id);
+        })->whereNotIn('id_stage', function($query2) {
+            $query2->select('id_stage')->from(with(new Candidature)->getTable());
         })->paginate(8);
 
-        $etudiants = Etudiant::whereIn('no_nanterre', $candidatures)->get();
-
-        return view('candidatures', compact('candidatures'))->with('etudiants', $etudiants);
+        return view('candidatures', compact('candidatures'));
     }
 
     public function show() {

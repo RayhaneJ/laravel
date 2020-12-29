@@ -9,146 +9,127 @@
         </h2>
     </x-slot>
 
+    <div class="flex justify-between container mx-auto">
+            <div class="w-full lg:w-12/12">
+            
     <div class="py-12">
+      @if(count($candidatures)>0)
     <div id="container" class="w-4/5 mx-auto">
     <div class="flex flex-col sm:flex-row">
       @foreach($candidatures as $candidature)
-      @if($loop->iteration % 5 == 0)
+      {{ $candidature->stage['titre_stage'] }}
+      @if($loop->iteration % 5 == 0)  
 </div>
 </div>
      <div id="container" class="w-4/5 mx-auto">
     <div class="flex flex-col sm:flex-row">
+      <a href="{{route('candidatureProfile',[$candidature->etudiant['no_nanterre'],$candidature->stage['titre_stage']])}}">
     <div class="sm:w-1/4 p-2">
         <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
           <div class="mb-3">
             <img
               class="w-auto mx-auto rounded-full"
-              src="https://i.pravatar.cc/150?img=66"
+              src="{{ $candidature->etudiant->user['profile_photo_path'] }}"
               alt=""
             />
           </div>
-          <h2 class="text-xl font-medium text-gray-700">Pande Muliada</h2>
+          <h2 class="text-xl font-medium text-gray-700"> {{ $candidature->etudiant['nom'] }} {{ $candidature->etudiant['prenom'] }}</h2>
           <span class="text-blue-500 block mb-5">Front End Developer</span>
-
-          <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full"
+          <form id="ajaxform" > 
+          <a href="#" data-id="[{{ $candidature->id_stage }}, {{ $candidature->no_nanterre }}]" class="hire px-4 py-2 bg-blue-500 text-white rounded-full"
             >Hire</a
           >
+          </form>
         </div>
       </div>
+</a>
       @else
+      <a href="{{route('candidatureProfile',[$candidature->etudiant['no_nanterre'],$candidature->stage['titre_stage']])}}">
       <div class="sm:w-1/4 p-2">
         <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
           <div class="mb-3">
             <img
               class="w-auto mx-auto rounded-full"
-              src="https://i.pravatar.cc/150?img=66"
+              src= "{{ $candidature->etudiant->user['profile_photo_path'] }}"
               alt=""
             />
           </div>
-          <h2 class="text-xl font-medium text-gray-700">Pande Muliada</h2>
+          <h2 class="text-xl font-medium text-gray-700">{{ $candidature->etudiant['nom'] }} {{ $candidature->etudiant['prenom'] }}</h2>
           <span class="text-blue-500 block mb-5">Front End Developer</span>
-
-          <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full"
+          <form id="ajaxform" > 
+          <a href="#" data-id="[{{ $candidature->id_stage }}, {{ $candidature->no_nanterre }}]" class="hire px-4 py-2 bg-blue-500 text-white rounded-full"
             >Hire</a
           >
+          </form>
         </div>
-      </div>
+</div>
+</a>
       @endif
       @endforeach
 </div>
+
 </div>
     
 
-            <!-- component -->
-<div id="container" class="w-4/5 mx-auto">
-    <div class="flex flex-col sm:flex-row">
-      <!-- Card 1 -->
-      <div class="sm:w-1/4 p-2">
-        <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-          <div class="mb-3">
-            <img
-              class="w-auto mx-auto rounded-full"
-              src="https://i.pravatar.cc/150?img=66"
-              alt=""
-            />
-          </div>
-          <h2 class="text-xl font-medium text-gray-700">Pande Muliada</h2>
-          <span class="text-blue-500 block mb-5">Front End Developer</span>
+      
 
-          <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full"
-            >Hire</a
-          >
-        </div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="sm:w-1/4 p-2">
-        <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-          <div class="mb-3">
-            <img
-              class="w-auto mx-auto rounded-full"
-              src="https://i.pravatar.cc/150?img=31"
-              alt=""
-            />
-          </div>
-          <h2 class="text-xl font-medium text-gray-700">Saraswati Cahyati</h2>
-          <span class="text-blue-500 block mb-5">Back End Developer</span>
 
-          <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full"
-            >Hire</a
-          >
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="sm:w-1/4 p-2">
-        <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-          <div class="mb-3">
-            <img
-              class="w-auto mx-auto rounded-full"
-              src="https://i.pravatar.cc/150?img=18"
-              alt=""
-            />
-          </div>
-          <h2 class="text-xl font-medium text-gray-700">Wayan Alex</h2>
-          <span class="text-blue-500 block mb-5">Data Scientist</span>
-
-          <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full"
-            >Hire</a
-          >
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="sm:w-1/4 p-2">
-        <div class="bg-white px-6 py-8 rounded-lg shadow-lg text-center">
-          <div class="mb-3">
-            <img
-              class="w-auto mx-auto rounded-full"
-              src="https://i.pravatar.cc/150?img=28"
-              alt=""
-            />
-          </div>
-          <h2 class="text-xl font-medium text-gray-700">Ketut Julia</h2>
-          <span class="text-blue-500 block mb-5">Project Manager</span>
-
-          <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-full"
-            >Hire</a
-          >
-        </div>
-      </div>
-    </div>
   </div>
 
-
-
-	</div>
-	
-
-
-
-
+  
+  <div class="mt-8">
+                        {!! $candidatures->links() !!}
+                </div>
+                @else 
+                <div class="flex bg-gray-100 py-24 justify-center">
+    <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-bold">Aucunes candidatures</div>
+        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de candidats, n'attendez plus et commencez à ajouter des candidatures
+        aujourd'hui.
+        </div>
+        <div class="mt-6 flex justify-center h-12 relative">
+        <a href="{{ route('createStage') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
+        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
+        Ajouter candidature
+        </a>
+        </div>
+    </div>
+</div>
+@endif
+                </div>
+</div>
             </div>
         </div>
     </div>
 </x-app-layout>
+
+
+
+<script>
+
+
+
+$('.hire').click(function(e){
+  e.preventDefault();
+  var el = $(this);
+  $.ajax({
+        url: "/candidatures/attente",
+        type:"POST",
+        data:{
+          _token: "{{ csrf_token() }}", 
+          id_stage: el.attr('data-id')[1],
+          no_nanterre: el.attr('data-id')[4]
+        },
+        success:function(response){
+          location.reload();
+          if(response) {
+            $('.success').text(response.success);
+            $("#ajaxform")[0].reset();
+            
+          }
+        },
+       });
+});
+
+</script>

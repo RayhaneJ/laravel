@@ -27,6 +27,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/candidature/{id}{stage}', [App\Http\Controllers\CandidatureController::class, 'show'])->name('candidatureProfile');
+
 Route::get('/stages', [App\Http\Controllers\StagesController::class, 'index'])->name('stages');
 
 Route::get('/stages/create', [App\Http\Controllers\StagesController::class, 'create'])->name('createStage');
@@ -38,6 +40,8 @@ Route::get('/stage', [App\Http\Controllers\StagiairesController::class, 'show'])
 Route::get('/candidatures/consulte', [App\Http\Controllers\PostuleController::class, 'show'])->name('mescandidatures');
 
 Route::get('/candidatures', [App\Http\Controllers\PostuleController::class, 'index'])->name('candidatures');
+
+Route::post('/candidatures/attente', [App\Http\Controllers\CandidatureController::class, 'store'])->name('candidaturesAttente');
 
 Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store'])->name('postule');
 
