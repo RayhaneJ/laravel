@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -38,7 +39,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'two_factor_recovery_codes',
-        'two_factor_secret',
+        'two_factor_secret'
     ];
 
     /**
@@ -59,7 +60,13 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+
     public function hasRole($role) {
         return $this->role == $role;
+    }
+
+    public function etudiant(){
+        return $this->hasOne(Etudiant::class, 'no_nanterre');
     }
 }

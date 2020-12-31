@@ -39,6 +39,8 @@ Route::get('/stage', [App\Http\Controllers\StagiairesController::class, 'show'])
 
 Route::post('/stage/accepte', [App\Http\Controllers\StagiairesController::class, 'store'])->name('accepteStage');
 
+Route::get('/stage/details', [App\Http\Controllers\StagiairesController::class, 'viewDetails'])->name('viewDetails');
+
 Route::get('/candidatures/consulte', [App\Http\Controllers\PostuleController::class, 'show'])->name('mescandidatures');
 
 Route::get('/candidatures', [App\Http\Controllers\PostuleController::class, 'index'])->name('candidatures');

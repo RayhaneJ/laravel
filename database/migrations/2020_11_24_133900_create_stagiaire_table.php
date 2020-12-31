@@ -19,6 +19,8 @@ class CreateStagiaireTable extends Migration
             $table->unsignedBigInteger('id_doc')->nullable();
             $table->unsignedBigInteger('id_mission')->nullable();
             $table->unsignedBigInteger('id_remarque')->nullable();
+            $table->boolean('conventionValideEn')->default(0);
+            $table->boolean('conventionValideTu')->default(0);
         });
     }
 

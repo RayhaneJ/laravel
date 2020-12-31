@@ -1,3 +1,4 @@
+
 <x-jet-form-section submit="updateProfileInformation">
     <x-slot name="title">
         {{ __('Profile Information') }}
@@ -42,8 +43,6 @@
                     {{ __('Select A New Photo') }}
                 </x-jet-secondary-button>
 
-                
-
                 @if ($this->user->profile_photo_path)
                     <x-jet-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('Remove Photo') }}
@@ -55,17 +54,30 @@
         @endif
 
         @if(Auth::user()->hasRole('et'))
-        <div class="col-span-6 sm:col-span-4 w-4/6">
-        <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Déposez LM') }}
-                </x-jet-secondary-button>
-
-        <x-jet-secondary-button class="mt-2 mr-2" type="button" x-on:click.prevent="$refs.photo.click()">
+        <div class="col-span-6 sm:col-span-6 w-5/6">
+        <div x-data="{}" class="flex flex-row ">
+        <input type="file" class="hidden" id="cv" wire:model="cv"
+                            x-ref="cv"/>
+        <x-jet-secondary-button class=" mr-2" type="button" x-on:click.prevent="$refs.cv.click()">
                     {{ __('Déposez CV') }}
                 </x-jet-secondary-button>
+                <x-jet-label class="m-auto" value="{!! str_replace('cv/', ' ', Auth::user()->etudiant['cv']) !!}" />
+                                </div>
+                                <x-jet-input-error for="cv" class="mt-2" />
+
+                                <div x-data="{}" class="flex mt-3 flex-row ">
+                                <input type="file" class="hidden" id="lm" wire:model="lm"
+                            x-ref="lm"/>
+        <x-jet-secondary-button class=" mr-2" type="button" x-on:click.prevent="$refs.lm.click()">
+                    {{ __('Déposez LM') }}
+                </x-jet-secondary-button>
+                <x-jet-label class="m-auto" value="{!! str_replace('lettre_motiv/', ' ', Auth::user()->etudiant['lettre_motiv']) !!}" />
+                                </div>
+                                
+                                <x-jet-input-error for="lettre_motiv" class="mt-2" />
         </div>
         @endif
-        
+
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="name" value="{{ __('Name') }}" />
@@ -79,8 +91,6 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
-
-        
     </x-slot>
 
     <x-slot name="actions">

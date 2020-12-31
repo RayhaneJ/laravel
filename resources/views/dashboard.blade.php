@@ -2,12 +2,12 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+<div class="flex items-center justify-center h-screen">
+    <x-slot name="header" >
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight hidden">
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    
     @if (\Session::has('success'))
     <div class="alert alert-success" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)"
       x-transition:leave="transition ease-in duration-300"
@@ -19,8 +19,8 @@
     </div>
 @endif
 
-
-    <div class="py-12">
+<div class="bg-green-400 flex justify-center items-center flex-grow">
+    <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
@@ -192,6 +192,9 @@
 
 <?php /**PATH /Users/rayhanejebbari/Sites/laravel_projet/vendor/laravel/jetstream/src/../resources/views/components/welcome.blade.php ENDPATH**/ ?>
             </div>
-        </div>
-    </div>
+    
+</div>
+</div>
+</div>
+</div>
 </x-app-layout>

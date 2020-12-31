@@ -19,5 +19,15 @@ class Stagiaire extends Model
         'id_doc',
         'id_mission',
         'id_remarque',
+        'conventionValideEn',
+        'conventionValideTu'
     ];
+
+    public function stage(){
+        return $this->belongsTo('App\Models\Stage', 'id_stage');
+    }
+
+    public function etudiant(){
+        return $this->belongsTo('App\Models\Etudiant', 'no_nanterre');
+    }
 }

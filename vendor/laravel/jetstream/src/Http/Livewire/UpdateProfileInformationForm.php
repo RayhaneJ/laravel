@@ -24,6 +24,8 @@ class UpdateProfileInformationForm extends Component
      * @var mixed
      */
     public $photo;
+    public $cv;
+    public $lm;
 
     /**
      * Prepare the component.
@@ -47,9 +49,9 @@ class UpdateProfileInformationForm extends Component
 
         $updater->update(
             Auth::user(),
-            $this->photo
-                ? array_merge($this->state, ['photo' => $this->photo])
-                : $this->state
+            [$this->photo, $this->cv, $this->lm]
+                ? array_merge($this->state, ['photo' => $this->photo, 'cv' => $this->cv, 'lm' => $this->lm])
+                : $this->state, [$this->photo, $this->cv, $this->lm],
         );
 
         if (isset($this->photo)) {

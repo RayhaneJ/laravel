@@ -23,8 +23,14 @@ class StagiairesController extends Controller
 
     public function show()
     {
-        $stagiaires = Stagiaire::where('no_nanterre', Auth::user()->id)->get();
+        $stagiaires = Stagiaire::where('no_nanterre', Auth::user()->id)->first();
         return view('monStage')->with('stagiaires', $stagiaires);
+    }
+
+    public function viewDetails()
+    {
+        $stagiaires = Stagiaire::where('no_nanterre', Auth::user()->id)->first();
+        return view('viewDetailStage')->with('stagiaires', $stagiaires);
     }
 
    public function store(Request $request){
@@ -38,4 +44,5 @@ class StagiairesController extends Controller
     
     return redirect('stage'); 
    }
+
 }
