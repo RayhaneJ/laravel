@@ -18,6 +18,10 @@ class AddComment extends Component
 
     public function save()
     {
+        $this->validate([
+            'remarque' => ['required', 'string'],
+        ]);
+
         Remarque::create([
             'id_stagiaire' => $this->stagiaires->id_stagiaire,
             'id_user' => Auth::user()->id,

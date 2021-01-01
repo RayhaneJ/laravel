@@ -8,10 +8,18 @@
       <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);" x-show="open" >
 
         <!-- A basic modal dialog with title, body and one button to close -->
-        <div class="container px-3 max-w-md mx-auto"  @click.away="open = false">
+        <div class="container px-3 max-w-md mx-auto pb-4"  @click.away="open = false">
     <!-- todo wrapper -->
-    <div class="bg-white rounded shadow px-4 py-4">
+    <div class="bg-white rounded shadow px-4 pt-4 pb-4">
+      <div class="flex flex-row">
       <div class="title font-bold text-lg">Ajouter des tâches</div>
+      <div class="flex items-center" id="resultAjoute">
+              <div class="capitalize ml-3 text-sm font-semibold">Tâche ajoutée</div>
+            </div>
+            <div class="flex items-center" id="erreur">
+              <div class="capitalize ml-3 text-sm font-semibold">Champs requis</div>
+            </div>
+</div>
       <div class="flex items-center text-sm mt-2">
         <button class="ajouteTache" >
           <svg class="w-3 h-3 mr-3 focus:outline-none" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -21,15 +29,12 @@
         <span>Ajoutez tâche</span>
       </div>
       <input type="text" placeholder="Intitulé tâche" class=" rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-4" id="todoTitle">
-      <input type="text" placeholder="Description tâche" class=" rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-2" id="todoDesc"> 
+      <input type="text" placeholder="Description tâche" class=" rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-2 mb-2" id="todoDesc"> 
       
-      <!-- todo list -->
-      <ul class="todo-list mt-4">
 
-      <div class="flex items-center" id="resultAjoute">
-              <div class="capitalize ml-3 text-sm font-semibold">Tâche ajoutée</div>
-            </div>
-      </ul>
+
+      
+            
     </div>
 
    
@@ -181,7 +186,7 @@
 <script>
 
    $('#resultAjoute').hide();// or fade, css display however you'd like.
-
+   $('#erreur').hide();
 let idEtudiant=null;
 
 $('.valideConvention').click(function(e){
@@ -233,7 +238,12 @@ $('.modalTache').click(function(e){
 });
 
 $('.ajouteTache').click(function(e){
-  e.preventDefault();
+  if($("#todoTitle").val() == '' || $("#todoDesc").val() == ''){
+    $("#erreur").fadeIn(500);
+          $("#erreur").delay(3000).fadeOut(300);
+  }
+  else {
+    e.preventDefault();
   var el = $(this);
   $.ajax({
         url: "/stagiaires/ajouteTache",
@@ -246,15 +256,12 @@ $('.ajouteTache').click(function(e){
         },
         success:function(response){  
           $("#resultAjoute").fadeIn(500);
-          $("#resultAjoute").delay(3000).hide(500);
+          $("#resultAjoute").delay(3000).fadeOut(300);
         }
        })
        $('#todoTitle').val("");
        $('#todoDesc').val("");
-    });
-
-  
-
-
+  }})
+ 
 
 </script>

@@ -27,8 +27,12 @@
         </dd>
       </div>
 
+      @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('et'))
       @if(Auth::user()->hasRole('en'))
       <div class="bg-white px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      @else(Auth::user()->hasRole('et'))
+          <div class="bg-gray-50 px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          @endif 
         <dt class="text-sm font-medium text-gray-500">
           Remarques
         </dt>
@@ -45,10 +49,15 @@
             </div>
             </div>
           </div>
+          @if(Auth::user()->hasRole('en'))
           <div class="px-4 py-3 bg-white text-right sm:px-6 ">
+              @elseif(Auth::user()->hasRole('et'))
+              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 ">
+                  @endif
           <x-jet-action-message class="inline-flex justify-center py-2 px-4  text-sm font-medium" on="saved">
             {{ __('Saved.') }}
         </x-jet-action-message>
+        <x-jet-input-error for="remarque" class="inline-flex justify-center py-2 px-4  text-sm font-medium" />
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Save
             </button>
