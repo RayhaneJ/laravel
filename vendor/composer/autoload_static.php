@@ -33,6 +33,7 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         '9cdd7b9056abc3081735233ba9dd9c7f' => __DIR__ . '/..' . '/facade/flare-client-php/src/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
         '40275907c8566c390185147049ef6e5d' => __DIR__ . '/..' . '/livewire/livewire/src/helpers.php',
@@ -97,6 +98,7 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -133,6 +135,7 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Jetstream\\' => 18,
             'Laravel\\Fortify\\' => 16,
+            'Larasocket\\' => 11,
         ),
         'J' => 
         array (
@@ -336,6 +339,10 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
         ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
@@ -431,6 +438,10 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         'Laravel\\Fortify\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/fortify/src',
+        ),
+        'Larasocket\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/larasocket/larasocket-driver/src',
         ),
         'Jenssegers\\Agent\\' => 
         array (
@@ -580,11 +591,26 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         'App\\Actions\\Fortify\\UpdateUserProfileInformation' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserProfileInformation.php',
         'App\\Actions\\Jetstream\\DeleteUser' => __DIR__ . '/../..' . '/app/Actions/Jetstream/DeleteUser.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\MessageSentEvent' => __DIR__ . '/../..' . '/app/Events/MessageSentEvent.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
+        'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
+        'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\CandidatureController' => __DIR__ . '/../..' . '/app/Http/Controllers/CandidatureController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\EntrepriseController' => __DIR__ . '/../..' . '/app/Http/Controllers/EntrepriseController.php',
-        'App\\Http\\Controllers\\OffreStageController' => __DIR__ . '/../..' . '/app/Http/Controllers/OffreStageController.php',
+        'App\\Http\\Controllers\\EtudiantController' => __DIR__ . '/../..' . '/app/Http/Controllers/EtudiantController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\MissionController' => __DIR__ . '/../..' . '/app/Http/Controllers/MissionController.php',
+        'App\\Http\\Controllers\\PostuleController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostuleController.php',
+        'App\\Http\\Controllers\\StagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/StagesController.php',
+        'App\\Http\\Controllers\\StagiairesController' => __DIR__ . '/../..' . '/app/Http/Controllers/StagiairesController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Livewire\\AddComment' => __DIR__ . '/../..' . '/app/Http/Livewire/AddComment.php',
+        'App\\Http\\Livewire\\ChatRoom' => __DIR__ . '/../..' . '/app/Http/Livewire/ChatRoom.php',
+        'App\\Http\\Livewire\\UploadFile' => __DIR__ . '/../..' . '/app/Http/Livewire/UploadFile.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\PreventRequestsDuringMaintenance' => __DIR__ . '/../..' . '/app/Http/Middleware/PreventRequestsDuringMaintenance.php',
@@ -593,6 +619,18 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\Candidature' => __DIR__ . '/../..' . '/app/Models/Candidature.php',
+        'App\\Models\\Document' => __DIR__ . '/../..' . '/app/Models/Document.php',
+        'App\\Models\\Entreprise' => __DIR__ . '/../..' . '/app/Models/Entreprise.php',
+        'App\\Models\\Etudiant' => __DIR__ . '/../..' . '/app/Models/Etudiant.php',
+        'App\\Models\\Jury' => __DIR__ . '/../..' . '/app/Models/Jury.php',
+        'App\\Models\\Message' => __DIR__ . '/../..' . '/app/Models/Message.php',
+        'App\\Models\\Mission' => __DIR__ . '/../..' . '/app/Models/Mission.php',
+        'App\\Models\\Postule' => __DIR__ . '/../..' . '/app/Models/Postule.php',
+        'App\\Models\\Remarque' => __DIR__ . '/../..' . '/app/Models/Remarque.php',
+        'App\\Models\\Stage' => __DIR__ . '/../..' . '/app/Models/Stage.php',
+        'App\\Models\\Stagiaire' => __DIR__ . '/../..' . '/app/Models/Stagiaire.php',
+        'App\\Models\\Tuteur' => __DIR__ . '/../..' . '/app/Models/Tuteur.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -2633,6 +2671,8 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         'Jenssegers\\Agent\\AgentServiceProvider' => __DIR__ . '/..' . '/jenssegers/agent/src/AgentServiceProvider.php',
         'Jenssegers\\Agent\\Facades\\Agent' => __DIR__ . '/..' . '/jenssegers/agent/src/Facades/Agent.php',
         'JsonException' => __DIR__ . '/..' . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
+        'Larasocket\\LarasocketBroadcaster' => __DIR__ . '/..' . '/larasocket/larasocket-driver/src/LarasocketBroadcaster.php',
+        'Larasocket\\LarasocketServiceProvider' => __DIR__ . '/..' . '/larasocket/larasocket-driver/src/LarasocketServiceProvider.php',
         'Laravel\\Fortify\\Actions\\AttemptToAuthenticate' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/AttemptToAuthenticate.php',
         'Laravel\\Fortify\\Actions\\CompletePasswordReset' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/CompletePasswordReset.php',
         'Laravel\\Fortify\\Actions\\ConfirmPassword' => __DIR__ . '/..' . '/laravel/fortify/src/Actions/ConfirmPassword.php',
@@ -4312,6 +4352,11 @@ class ComposerStaticInit65cf4ee41d7af6418397be05fd3765b0
         'Psy\\VersionUpdater\\GitHubChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/GitHubChecker.php',
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherCrypto' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherCrypto.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
+        'Pusher\\Webhook' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Webhook.php',
         'Ramsey\\Collection\\AbstractArray' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractArray.php',
         'Ramsey\\Collection\\AbstractCollection' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractCollection.php',
         'Ramsey\\Collection\\AbstractSet' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractSet.php',

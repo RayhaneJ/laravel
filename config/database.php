@@ -90,7 +90,10 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
+        'larasocket' => [
+            'driver' => 'larasocket',
+            'token' => env('LARASOCKET_TOKEN'),
+        ],
     ],
 
     /*

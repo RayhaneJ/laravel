@@ -81,4 +81,9 @@ class User extends Authenticatable
     public function jury(){
         return $this->hasOne(Etudiant::class, 'no_nanterre');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }    
 }

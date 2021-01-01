@@ -65,6 +65,8 @@ Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store']
 
 Route::delete('/postule/delete', [App\Http\Controllers\PostuleController::class, 'destroy'])->name('postuleDelete');
 
+Route::get('/chat' , App\Http\Livewire\ChatRoom::class);
+
 Route::get('/download/cv/{file}', function ($file='') {
     $filepath = public_path('storage/cv/').$file;
     return response()->download($filepath); 

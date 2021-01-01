@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'c9283b1ec5e4b4611b94f56b12d4a4c8a70fde53',
+    'reference' => '53fa2eb0bf1ce4bc482fbde5b9f394c4196c0158',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -478,6 +478,15 @@ private static $installed = array (
         0 => '*',
       ),
     ),
+    'larasocket/larasocket-driver' => 
+    array (
+      'pretty_version' => '1.0.3',
+      'version' => '1.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '43f709ec2383cbc0805f82df0cc0f39e5a38573f',
+    ),
     'laravel/fortify' => 
     array (
       'pretty_version' => 'v1.7.1',
@@ -512,7 +521,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'c9283b1ec5e4b4611b94f56b12d4a4c8a70fde53',
+      'reference' => '53fa2eb0bf1ce4bc482fbde5b9f394c4196c0158',
     ),
     'laravel/sanctum' => 
     array (
@@ -668,6 +677,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '47a1cedd2e4d52688eb8c96469c05ebc8fd28fa2',
+    ),
+    'paragonie/random_compat' => 
+    array (
+      'pretty_version' => 'v9.99.100',
+      'version' => '9.99.100.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '996434e5492cb4c3edcb9168db6fbb1359ef965a',
+    ),
+    'paragonie/sodium_compat' => 
+    array (
+      'pretty_version' => 'v1.14.0',
+      'version' => '1.14.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a1cfe0b21faf9c0b61ac0c6188c4af7fd6fd0db3',
     ),
     'phar-io/manifest' => 
     array (
@@ -893,6 +920,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'a8aec1b2981ab66882a01cce36a49b6317dc3560',
+    ),
+    'pusher/pusher-php-server' => 
+    array (
+      'pretty_version' => 'v4.1.5',
+      'version' => '4.1.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '251f22602320c1b1aff84798fe74f3f7ee0504a9',
     ),
     'ralouphie/getallheaders' => 
     array (
