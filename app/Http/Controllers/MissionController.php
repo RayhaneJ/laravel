@@ -22,6 +22,11 @@ class MissionController extends Controller
         $this->middleware('auth');
     }
 
+    public function index($id_stagiaire){
+        $missions=Mission::where('id_stagiaire', $id_stagiaire)->get();
+        return view('consulteTaches', compact('missions'));
+    }
+
 
    public function store(Request $request){
     Mission::create([

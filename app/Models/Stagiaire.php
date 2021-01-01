@@ -27,15 +27,15 @@ class Stagiaire extends Model
     }
 
     public function missions(){
-        return $this->hasMany(Mission::class, 'id_mission');
+        return $this->hasMany(Mission::class, 'id_stagiaire');
     }
 
     public function remarques(){
-        return $this->hasMany(Remarque::class, 'id_remarque');
+        return $this->hasMany(Remarque::class, 'id_stagiaire');
     }
 
     public function documents(){
-        return $this->hasMany(Document::class, 'id_doc');
+        return $this->hasMany(Document::class, 'id_stagiaire');
     }
 
     public function etudiant(){

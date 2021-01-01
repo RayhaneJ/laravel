@@ -26,10 +26,9 @@
       <!-- todo list -->
       <ul class="todo-list mt-4">
 
-      <div class="flex items-center" id="resultAjoute" >
+      <div class="flex items-center" id="resultAjoute">
               <div class="capitalize ml-3 text-sm font-semibold">Tâche ajoutée</div>
             </div>
-
       </ul>
     </div>
 
@@ -127,7 +126,7 @@
                 <a href="{{ route('viewDetails', ['id'=> $stagiaire->no_nanterre]) }}" class="text-indigo-600 hover:text-indigo-900">Détails</a>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <a href="#" class="text-indigo-600 hover:text-indigo-900">Tâches</a>
+                <a href="{{ route('missions', ['id_stagiaire' => $stagiaire->id_stagiaire]) }}" class="text-indigo-600 hover:text-indigo-900">Tâches</a>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <a data-id="{{ $stagiaire->id_stagiaire }}" class="modalTache" x-on:click="open = true" 

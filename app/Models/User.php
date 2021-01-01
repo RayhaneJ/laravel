@@ -69,4 +69,16 @@ class User extends Authenticatable
     public function etudiant(){
         return $this->hasOne(Etudiant::class, 'no_nanterre');
     }
+
+    public function tuteur(){
+        return $this->hasOne(Etudiant::class, 'no_nanterre');
+    }
+
+    public function entreprise(){
+        return $this->hasOne(Etudiant::class, 'id_entreprise');
+    }
+
+    public function jury(){
+        return $this->hasOne(Etudiant::class, 'no_nanterre');
+    }
 }

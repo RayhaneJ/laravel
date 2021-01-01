@@ -59,6 +59,8 @@ Route::post('/stagiaires/ajouteTache', [App\Http\Controllers\MissionController::
 
 Route::get('/candidatures/retenues', [App\Http\Controllers\CandidatureController::class, 'index'])->name('mesCandidaturesRetenues');
 
+Route::get('/missions/{id_stagiaire}', [App\Http\Controllers\MissionController::class, 'index'])->name('missions');
+
 Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store'])->name('postule');
 
 Route::delete('/postule/delete', [App\Http\Controllers\PostuleController::class, 'destroy'])->name('postuleDelete');
@@ -70,5 +72,10 @@ Route::get('/download/cv/{file}', function ($file='') {
 
 Route::get('/download/lm/{file}', function ($file='') {
     $filepath = public_path('storage/lm/').$file;
+    return response()->download($filepath); 
+});
+
+Route::get('/download/file/{file}', function ($file='') {
+    $filepath = public_path('storage/file/').$file;
     return response()->download($filepath); 
 });

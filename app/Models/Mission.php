@@ -20,7 +20,9 @@ class Mission extends Model
         'id_stagiaire',
         'titre_mission',
         'mission',
-        'fait'
+        'fait',
+        'created_at',
+        'updated_at'
     ];
 
     public function user(){

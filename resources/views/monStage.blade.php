@@ -139,7 +139,7 @@
             </div>
           </div>
           <div class="ml-4">
-          <a href="{{ route('consulteTaches', ['id'=> $stagiaires->no_nanterre]) }}">
+          <a href="{{ route('missions', ['id_stagiaire'=> $stagiaires->id_stagiaire]) }}">
             <dt class="text-lg leading-6 font-medium text-gray-900">
               Tâches
             </dt>
