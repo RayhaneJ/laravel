@@ -16,9 +16,6 @@ class AddFkToStagiaires extends Migration
         Schema::table('stagiaires', function (Blueprint $table) {
             $table->foreign('no_nanterre')->references('no_nanterre')->on('etudiants')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_stage')->references('id_stage')->on('offrestages')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_doc')->references('id_doc')->on('documents')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_mission')->references('id_mission')->on('missions')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('id_remarque')->references('id_remarque')->on('remarques')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

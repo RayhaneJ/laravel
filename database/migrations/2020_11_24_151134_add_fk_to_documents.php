@@ -15,6 +15,7 @@ class AddFkToDocuments extends Migration
     {
         Schema::table('documents', function (Blueprint $table) {
             $table->foreign('id_remarque')->references('id_remarque')->on('remarques')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_stagiaire')->references('id_stagiaire')->on('stagiaires')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

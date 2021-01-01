@@ -15,6 +15,7 @@ class AddFkToMissions extends Migration
     {
         Schema::table('missions', function (Blueprint $table) {
             $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_stagiaire')->references('id_stagiaire')->on('stagiaires')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

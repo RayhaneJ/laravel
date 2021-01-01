@@ -2,7 +2,6 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
 <x-app-layout>
-<div class="flex items-center justify-center h-screen">
     <x-slot name="header" >
         <h2 class="font-semibold text-xl text-gray-800 leading-tight hidden">
             {{ __('Dashboard') }}
@@ -19,7 +18,6 @@
     </div>
 @endif
 
-<div class="bg-green-400 flex justify-center items-center flex-grow">
     <div class="py-12 ">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -135,6 +133,29 @@
             </dd>
           </div>
         </div>
+
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+              <!-- Heroicon name: scale -->
+              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+              </svg>
+            </div>
+          </div>
+          <div class="ml-4">
+          <a href="{{ route('stagiaires') }}">
+          <dt class="text-lg leading-6 font-medium text-gray-900">
+              Stagiaires
+              
+            </dt>
+            </a>
+            <dd class="mt-2 text-base text-gray-500">
+              Consultez les stagiaires des offres de stage que vous avez mis en 
+              ligne et que vous avez recrutez.
+            </dd>
+          </div>
+        </div>
         @endif
 
         @if (Auth::user()->hasRole('et'))
@@ -193,8 +214,6 @@
 <?php /**PATH /Users/rayhanejebbari/Sites/laravel_projet/vendor/laravel/jetstream/src/../resources/views/components/welcome.blade.php ENDPATH**/ ?>
             </div>
     
-</div>
-</div>
 </div>
 </div>
 </x-app-layout>

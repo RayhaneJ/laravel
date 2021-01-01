@@ -14,9 +14,10 @@ class CreateRemarquesTable extends Migration
     public function up()
     {
         Schema::create('remarques', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_remarque')->index();
+            $table->id('id_remarque');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('remarque');
+            $table->unsignedBigInteger('id_stagiaire');
+            $table->string('remarque');
         });
     }
 

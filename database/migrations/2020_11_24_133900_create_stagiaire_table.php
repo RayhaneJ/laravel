@@ -14,11 +14,9 @@ class CreateStagiaireTable extends Migration
     public function up()
     {
         Schema::create('stagiaires', function (Blueprint $table) {
-            $table->unsignedBigInteger('no_nanterre')->index();
-            $table->unsignedBigInteger('id_stage')->index();
-            $table->unsignedBigInteger('id_doc')->nullable();
-            $table->unsignedBigInteger('id_mission')->nullable();
-            $table->unsignedBigInteger('id_remarque')->nullable();
+            $table->id('id_stagiaire');
+            $table->unsignedBigInteger('no_nanterre');
+            $table->unsignedBigInteger('id_stage');
             $table->boolean('conventionValideEn')->default(0);
             $table->boolean('conventionValideTu')->default(0);
         });

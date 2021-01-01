@@ -118,7 +118,7 @@
             </div>
           </div>
           <div class="ml-4">
-            <a href="{{ route('viewDetails') }}">
+            <a href="{{ route('viewDetails', ['id'=> $stagiaires->no_nanterre]) }}">
             <dt class="text-lg leading-6 font-medium text-gray-900">
               Détails
             </dt>
@@ -139,11 +139,13 @@
             </div>
           </div>
           <div class="ml-4">
+          <a href="{{ route('consulteTaches', ['id'=> $stagiaires->no_nanterre]) }}">
             <dt class="text-lg leading-6 font-medium text-gray-900">
-              No hidden fees
+              Tâches
             </dt>
+            </a>
             <dd class="mt-2 text-base text-gray-500">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              Consultez vos tâches que l'on vous à attribuez durant votre stage.
             </dd>
           </div>
         </div>

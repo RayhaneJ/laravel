@@ -8,7 +8,7 @@ class Stage extends Model
 {
     protected $table = 'offrestages';
     protected $primaryKey = 'id_stage';
-    public $timestamps = false;
+    public $timestamps = true;
     /**
      * The attributes that are mass assignable.
      *

@@ -21,6 +21,7 @@ class CreateOffrestagesTable extends Migration
             $table->string('fin_stage');
             $table->string('duree');
             $table->string('desc_stage');
+            $table->timestamps();
         });
     }
 

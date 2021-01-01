@@ -14,9 +14,13 @@ class CreateMissionsTable extends Migration
     public function up()
     {
         Schema::create('missions', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_mission')->index();
+            $table->id('id_mission');
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('mission');
+            $table->string('titre_mission');
+            $table->string('mission');
+            $table->boolean('fait')->default(0);
+            $table->unsignedBigInteger('id_stagiaire');
+            $table->timestamps();
         });
     }
 

@@ -39,7 +39,15 @@ Route::get('/stage', [App\Http\Controllers\StagiairesController::class, 'show'])
 
 Route::post('/stage/accepte', [App\Http\Controllers\StagiairesController::class, 'store'])->name('accepteStage');
 
-Route::get('/stage/details', [App\Http\Controllers\StagiairesController::class, 'viewDetails'])->name('viewDetails');
+Route::get('/stage/details/{id}', [App\Http\Controllers\StagiairesController::class, 'viewDetails'])->name('viewDetails');
+
+Route::get('/stagiaires', [App\Http\Controllers\StagiairesController::class, 'index'])->name('stagiaires');
+
+Route::post('/stagiaires/valideConvention', [App\Http\Controllers\StagiairesController::class, 'valideConvention'])->name('valideConvention');
+
+Route::post('/stagiaires/invalidConvention', [App\Http\Controllers\StagiairesController::class, 'invalidConvention'])->name('invalidConvention');
+
+Route::get('/stagiaires/consulteTaches/{id}', [App\Http\Controllers\StagiairesController::class, 'consulteTaches'])->name('consulteTaches');
 
 Route::get('/candidatures/consulte', [App\Http\Controllers\PostuleController::class, 'show'])->name('mescandidatures');
 
@@ -47,8 +55,20 @@ Route::get('/candidatures', [App\Http\Controllers\PostuleController::class, 'ind
 
 Route::post('/candidatures/attente', [App\Http\Controllers\CandidatureController::class, 'store'])->name('candidaturesAttente');
 
+Route::post('/stagiaires/ajouteTache', [App\Http\Controllers\MissionController::class, 'store'])->name('ajouteTache');
+
 Route::get('/candidatures/retenues', [App\Http\Controllers\CandidatureController::class, 'index'])->name('mesCandidaturesRetenues');
 
 Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store'])->name('postule');
 
 Route::delete('/postule/delete', [App\Http\Controllers\PostuleController::class, 'destroy'])->name('postuleDelete');
+
+Route::get('/download/cv/{file}', function ($file='') {
+    $filepath = public_path('storage/cv/').$file;
+    return response()->download($filepath); 
+});
+
+Route::get('/download/lm/{file}', function ($file='') {
+    $filepath = public_path('storage/lm/').$file;
+    return response()->download($filepath); 
+});

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stagiaire extends Model
 {
     protected $table = 'stagiaires';
+    protected $primaryKey = 'id_stagiaire';
     public $timestamps = false;
     /**
      * The attributes that are mass assignable.
@@ -14,17 +15,27 @@ class Stagiaire extends Model
      * @var array
      */
     protected $fillable = [
+        'id_stagiaire',
         'no_nanterre',
         'id_stage',
-        'id_doc',
-        'id_mission',
-        'id_remarque',
         'conventionValideEn',
         'conventionValideTu'
     ];
 
     public function stage(){
         return $this->belongsTo('App\Models\Stage', 'id_stage');
+    }
+
+    public function missions(){
+        return $this->hasMany(Mission::class, 'id_mission');
+    }
+
+    public function remarques(){
+        return $this->hasMany(Remarque::class, 'id_remarque');
+    }
+
+    public function documents(){
+        return $this->hasMany(Document::class, 'id_doc');
     }
 
     public function etudiant(){
