@@ -23,7 +23,3 @@ Broadcast::channel('demo', function ($user) {
         'email' => $user->email,
     ];
 });
-
-Broadcast::channel('chat', function () {
-    return \Illuminate\Support\Facades\Auth::check();
-});

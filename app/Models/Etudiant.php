@@ -36,6 +36,11 @@ class Etudiant extends Model
         return $this->belongsTo('App\Models\Tuteur', 'no_nanterre_1');
     }
 
+    public function stage() {
+        return $this->hasOne(Stagiaire::class, 'no_nanterre');
+    }
+
+
     /**
      * Update the user's profile photo.
      *

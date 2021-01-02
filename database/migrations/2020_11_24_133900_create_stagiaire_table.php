@@ -19,6 +19,7 @@ class CreateStagiaireTable extends Migration
             $table->unsignedBigInteger('id_stage');
             $table->boolean('conventionValideEn')->default(0);
             $table->boolean('conventionValideTu')->default(0);
+            $table->boolean('isValid')->default(0);
         });
     }
 

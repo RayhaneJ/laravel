@@ -40,7 +40,15 @@
    
   </div>
       </div>
-
+      @if(Auth::user()->hasRole('tu'))
+      <div class="fixed bottom-0 right-0 mr-12 mb-8 ">
+        <a href="{{ route('exportStudent', ['tuteurId' => Auth::user()->id]) }}">
+        <div class="bg-white rounded-lg shadow-md px-4 py-2 border-1 border-gray-400">
+            Export CSV
+        </div>
+        </a>
+    </div>
+      @endif
 
 <x-app-layout>
     <x-slot name="header">
@@ -68,9 +76,20 @@
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Intitule stage
               </th>
+              @if (Auth::user()->hasRole('en') || Auth::user()->hasRole('tu'))
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Convention
               </th>
+              @elseif(Auth::user()->hasRole('ju'))
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Statut
+              </th>
+              @endif
+              @if(Auth::user()->hasRole('tu'))
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Statut
+              </th>
+              @endif
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 Classe
               </th>
@@ -80,9 +99,11 @@
               <th scope="col" class="relative px-6 py-3">
                 <span class="sr-only">Tâches</span>
               </th>
+              @if (Auth::user()->hasRole('en'))
               <th scope="col" class="relative px-6 py-3">
                 <span class="sr-only">AjouterTaches</span>
               </th>
+              @endif
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
@@ -107,10 +128,11 @@
                 <div class="text-sm text-gray-900">{{ $stagiaire->stage['titre_stage'] }}</div>
                 <div class="text-sm text-gray-500">{{ $stagiaire->stage['duree'] }}</div>
               </td>
-              @if($stagiaire->conventionValideEn == true)
+              @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('tu'))
+              @if($stagiaire->conventionValide == true)
               <td class="px-6 py-4 whitespace-nowrap">
               <a href="" class="invalidConvention" data-id="{{ $stagiaire->no_nanterre }}">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                <span class="inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                   Valide
                 </span>
                 </a>
@@ -118,11 +140,63 @@
               @else 
               <td class="px-6 py-4 whitespace-nowrap">
                 <a href="" class="valideConvention" data-id="{{ $stagiaire->no_nanterre }}">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-white-100 text-gray-800">
+                <span class="inline-flex text-xs leading-5 font-semibold rounded-full bg-white-100 text-gray-800">
                   Non valide
                 </span>
                 </a>
               </td>
+              @endif
+              @elseif(Auth::user()->hasRole('ju'))
+              @if($stagiaire->isValid == true)
+              <td class="px-6 py-4 whitespace-nowrap">
+              <a href="" class="invalidStage" data-id="{{ $stagiaire->no_nanterre }}">
+                <span class=" inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Valide
+                </span>
+                </a>
+              </td>
+              @else 
+              <td class="px-6 py-4 whitespace-nowrap">
+                <a href="" class="valideStage" data-id="{{ $stagiaire->no_nanterre }}">
+                <span class=" inline-flex text-xs leading-5 font-semibold rounded-full bg-white-100 text-gray-800">
+                  Non valide
+                </span>
+                </a>
+              </td>
+              @endif
+              @elseif(Auth::user()->hasRole('tu'))
+              @if($stagiaire->conventionValideTu == true)
+              <td class="px-6 py-4 whitespace-nowrap">
+              <a href="" class="invalidConvention" data-id="{{ $stagiaire->no_nanterre }}">
+                <span class="inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Valide
+                </span>
+                </a>
+              </td>
+              @else 
+              <td class="px-6 py-4 whitespace-nowrap">
+                <a href="" class="valideConvention" data-id="{{ $stagiaire->no_nanterre }}">
+                <span class="inline-flex text-xs leading-5 font-semibold rounded-full bg-white-100 text-gray-800">
+                  Non valide
+                </span>
+                </a>
+              </td>
+              @endif
+              @endif
+              @if(Auth::user()->hasRole('tu'))
+              @if($stagiaire->isValid == true)
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class=" inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Valide
+                </span>
+              </td>
+              @else 
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class=" inline-flex text-xs leading-5 font-semibold rounded-full bg-white-100 text-gray-800">
+                  Non valide
+                </span>
+              </td>
+              @endif
               @endif
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
               {{$stagiaire->etudiant['classe']}}
@@ -133,6 +207,7 @@
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <a href="{{ route('missions', ['id_stagiaire' => $stagiaire->id_stagiaire]) }}" class="text-indigo-600 hover:text-indigo-900">Tâches</a>
               </td>
+              @if (Auth::user()->hasRole('en'))
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <a data-id="{{ $stagiaire->id_stagiaire }}" class="modalTache" x-on:click="open = true" 
            class="text-indigo-600 hover:text-indigo-900 cursor-pointer">
@@ -141,6 +216,7 @@
 </svg>
 </a>
               </td>
+              @endif
             </tr>
             @endforeach
             <!-- More rows... -->
@@ -158,6 +234,7 @@
                         {!! $stagiaires->links() !!}
                 </div>
                 @else 
+                @if (Auth::user()->hasRole('en'))
                 <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
         <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
@@ -172,6 +249,21 @@
         </div>
     </div>
 </div>
+@elseif(Auth::user()->hasRole('tu'))
+<div class="flex  py-24 justify-center">
+    <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
+        <div class="text-xl font-normal mt-4">Vous n'êtes pas encore responsable de stagiaires, revenez plus tard.
+        </div>
+        <div class="mt-6 flex justify-center h-12 relative">
+        <a href="{{ route('dashboard') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
+        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
+        Consultez candidatures.
+        </a>
+        </div>
+    </div>
+</div>
+@endif
 @endif
                 </div>
 </div>
@@ -215,6 +307,48 @@ $('.invalidConvention').click(function(e){
   var el = $(this);
   $.ajax({
         url: "/stagiaires/invalidConvention",
+        type:"POST",
+        data:{
+          _token: "{{ csrf_token() }}", 
+          no_nanterre: el.attr('data-id')
+        },
+        success:function(response){
+          location.reload();
+          if(response) {
+            $('.success').text(response.success);
+            $("#ajaxform")[0].reset();
+            
+          }
+        },
+       });
+});
+
+$('.valideStage').click(function(e){
+  e.preventDefault();
+  var el = $(this);
+  $.ajax({
+        url: "/stagiaires/valideStage",
+        type:"POST",
+        data:{
+          _token: "{{ csrf_token() }}", 
+          no_nanterre: el.attr('data-id')
+        },
+        success:function(response){
+          location.reload();
+          if(response) {
+            $('.success').text(response.success);
+            $("#ajaxform")[0].reset();
+            
+          }
+        },
+       });
+});
+
+$('.invalidStage').click(function(e){
+  e.preventDefault();
+  var el = $(this);
+  $.ajax({
+        url: "/stagiaires/invalidStage",
         type:"POST",
         data:{
           _token: "{{ csrf_token() }}", 

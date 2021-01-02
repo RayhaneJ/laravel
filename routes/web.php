@@ -61,11 +61,13 @@ Route::get('/candidatures/retenues', [App\Http\Controllers\CandidatureController
 
 Route::get('/missions/{id_stagiaire}', [App\Http\Controllers\MissionController::class, 'index'])->name('missions');
 
+Route::get('/students/{tuteurId}', [App\Http\Controllers\StagiairesController::class, 'exportStudent'])->name('exportStudent');
+
 Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store'])->name('postule');
 
 Route::delete('/postule/delete', [App\Http\Controllers\PostuleController::class, 'destroy'])->name('postuleDelete');
 
-Route::get('/chat' , App\Http\Livewire\ChatRoom::class);
+Route::get('/chat/{id}' , App\Http\Livewire\ChatRoom::class);
 
 Route::get('/download/cv/{file}', function ($file='') {
     $filepath = public_path('storage/cv/').$file;

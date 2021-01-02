@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '53fa2eb0bf1ce4bc482fbde5b9f394c4196c0158',
+    'reference' => '5672d34671e26af3f55f7cf080c7bb2c9e34a428',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -508,7 +508,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '53fa2eb0bf1ce4bc482fbde5b9f394c4196c0158',
+      'reference' => '5672d34671e26af3f55f7cf080c7bb2c9e34a428',
     ),
     'laravel/sanctum' => 
     array (
@@ -545,6 +545,15 @@
       array (
       ),
       'reference' => '11df9b36fd4f1d2b727a73bf14931d81373b9a54',
+    ),
+    'league/csv' => 
+    array (
+      'pretty_version' => '9.6.2',
+      'version' => '9.6.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f28da6e483bf979bac10e2add384c90ae9983e4e',
     ),
     'league/flysystem' => 
     array (
@@ -1378,6 +1387,15 @@
       array (
       ),
       'reference' => 'b43b05cf43c1b6d849478965062b6ef73e223bb5',
+    ),
+    'usmanhalalit/laracsv' => 
+    array (
+      'pretty_version' => '2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '98016abe4c55e7ed3c97a3e0b930cbac58374f57',
     ),
     'vlucas/phpdotenv' => 
     array (

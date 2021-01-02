@@ -1,6 +1,7 @@
+<div> 
 @section('title', 'Larasocket Demo')
 <script type="text/javascript" src="/js/app.js"></script>
-<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Missions') }}
@@ -78,3 +79,4 @@
     </div>
     @error('messageBody') <div class="error mt-2">{{ $message }}</div> @enderror
 </div>
+            </div>

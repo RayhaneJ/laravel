@@ -15,7 +15,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white shadow overflow-hidden sm:rounded-lg">
+@if(Auth::user()->id === $stagiaires->no_nanterre || Auth::user()->role === "tu")
+<div class="bg-gray-50 shadow overflow-hidden sm:rounded-lg">
+  @else 
+  <div class="bg-white shadow overflow-hidden sm:rounded-lg">
+  @endif
   <div class="px-4 py-5 sm:px-6">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Informations
@@ -139,7 +143,7 @@
           </ul>
         </dd>
       </div>
-      @if(Auth::user()->id === $stagiaires->no_nanterre)
+      @if(Auth::user()->id === $stagiaires->no_nanterre || Auth::user()->role === "tu")
       @livewire('upload-file',['stagiaires' => $stagiaires])
       @endif
       @livewire('add-comment',['stagiaires' => $stagiaires])

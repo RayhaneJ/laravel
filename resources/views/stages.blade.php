@@ -41,9 +41,11 @@
                             <p class="mt-2 text-gray-600">{{ $stage->desc_stage }}</p>
                         </div>
                         <div class="flex justify-between items-center mt-4">
+                        @if(Auth::user()->hasRole('et'))
                         <form id="ajaxform" > 
                         @if (count($postules) > 0)
                         @foreach($postules as $postule)
+                        
                             @if($postule->id_stage == $stage->id_stage)
                              <?php $isPresent = true ?>
                              @break
@@ -71,6 +73,7 @@
                         @endif
                        
                         </form>
+                        @endif
                             <div><a href="#" class="flex items-center"><img
                                         src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
                                         alt="avatar" class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block">

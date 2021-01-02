@@ -41,4 +41,8 @@ class Stagiaire extends Model
     public function etudiant(){
         return $this->belongsTo('App\Models\Etudiant', 'no_nanterre');
     }
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'no_nanterre');
+    }
 }
