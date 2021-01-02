@@ -45,4 +45,13 @@ class Stagiaire extends Model
     public function user(){
         return $this->belongsTo('App\Models\User', 'no_nanterre');
     }
+
+    public function estArchive(){
+        if(Archive::where('id_stagiaire', $this->id_stagiaire)->exists()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

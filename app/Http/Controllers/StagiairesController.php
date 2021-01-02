@@ -33,10 +33,13 @@ class StagiairesController extends Controller
         else if(Auth::user()->role=="ju") {
             $stagiaires = Stagiaire::paginate(10);
         }
-        else if(Auth::user()->role = "tu") {
+        else if(Auth::user()->role == "tu") {
             $stagiaires = Stagiaire::where('no_nanterre', function($query2) {
                 $query2->select('no_nanterre')->from(with(new Etudiant)->getTable())->where('no_nanterre_1', Auth::user()->id);})
                 ->paginate(10);
+        }
+        else if(Auth::user()->role=="admin") {
+            $stagiaires = Stagiaire::paginate(10);
         }
         
         return view('consulteStagiaires', compact('stagiaires'));
@@ -64,6 +67,9 @@ class StagiairesController extends Controller
             return view('viewDetailStage')->with('stagiaires', $stagiaires);
         }
         else if(Auth::user()->role == "tu" && $stagiaires->etudiant['no_nanterre_1'] == Auth::user()->id){
+            return view('viewDetailStage')->with('stagiaires', $stagiaires);
+        }
+        else if(Auth::user()->role = "admin") {
             return view('viewDetailStage')->with('stagiaires', $stagiaires);
         }
         else {

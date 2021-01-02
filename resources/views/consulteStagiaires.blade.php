@@ -99,6 +99,11 @@
               <th scope="col" class="relative px-6 py-3">
                 <span class="sr-only">Tâches</span>
               </th>
+              @if(Auth::user()->hasRole('admin'))
+              <th scope="col" class="relative px-6 py-3">
+                <span class="sr-only">Archiver</span>
+              </th>
+              @endif
               @if (Auth::user()->hasRole('en'))
               <th scope="col" class="relative px-6 py-3">
                 <span class="sr-only">AjouterTaches</span>
@@ -207,6 +212,15 @@
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                 <a href="{{ route('missions', ['id_stagiaire' => $stagiaire->id_stagiaire]) }}" class="text-indigo-600 hover:text-indigo-900">Tâches</a>
               </td>
+              @if(Auth::user()->hasRole('admin'))
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              @if($stagiaire->estArchive() == 1)
+              <a class=" text-green-800">Archiver</a>
+                @elseif($stagiaire->estArchive() == 0)
+                <a href="" data-id="{{ $stagiaire->id_stagiaire }}" class="archive text-indigo-600 hover:text-indigo-900">Archiver</a>
+                @endif 
+              </td>
+              @endif
               @if (Auth::user()->hasRole('en'))
               <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
               <a data-id="{{ $stagiaire->id_stagiaire }}" class="modalTache" x-on:click="open = true" 
@@ -234,7 +248,7 @@
                         {!! $stagiaires->links() !!}
                 </div>
                 @else 
-                @if (Auth::user()->hasRole('en'))
+                @if(Auth::user()->hasRole('en'))
                 <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
         <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
@@ -263,9 +277,18 @@
         </div>
     </div>
 </div>
+@elseif(Auth::user()->hasRole('admin'))
+<div class="flex  py-24 justify-center">
+    <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
+        <div class="text-xl font-normal mt-4">Il n'existe pas encore de staigiaires, revenez plus tard.
+        </div>
+        
+    </div>
+</div>
 @endif
 @endif
-                </div>
+               
 </div>
 </div>
             </div>
@@ -353,6 +376,27 @@ $('.invalidStage').click(function(e){
         data:{
           _token: "{{ csrf_token() }}", 
           no_nanterre: el.attr('data-id')
+        },
+        success:function(response){
+          location.reload();
+          if(response) {
+            $('.success').text(response.success);
+            $("#ajaxform")[0].reset();
+            
+          }
+        },
+       });
+});
+
+$('.archive').click(function(e){
+  e.preventDefault();
+  var el = $(this);
+  $.ajax({
+        url: "/archive",
+        type:"POST",
+        data:{
+          _token: "{{ csrf_token() }}", 
+          id_stagiaire: el.attr('data-id')
         },
         success:function(response){
           location.reload();

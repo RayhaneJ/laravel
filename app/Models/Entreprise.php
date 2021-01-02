@@ -22,4 +22,8 @@ class Entreprise extends Model
         'ville',
         'cd_postal'
     ];
+
+    public function user(){
+        return $this->belongsTo('App\Models\User', 'no_nanterre');
+    }
 }

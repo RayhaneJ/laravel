@@ -15,7 +15,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <!-- This example requires Tailwind CSS v2.0+ -->
-@if(Auth::user()->id === $stagiaires->no_nanterre || Auth::user()->role === "tu")
+@if(Auth::user()->id === $stagiaires->no_nanterre || Auth::user()->role === "tu" )
 <div class="bg-gray-50 shadow overflow-hidden sm:rounded-lg">
   @else 
   <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -143,7 +143,7 @@
           </ul>
         </dd>
       </div>
-      @if(Auth::user()->id === $stagiaires->no_nanterre || Auth::user()->role === "tu")
+      @if(Auth::user()->id === $stagiaires->no_nanterre || Auth::user()->role === "tu" )
       @livewire('upload-file',['stagiaires' => $stagiaires])
       @endif
       @livewire('add-comment',['stagiaires' => $stagiaires])

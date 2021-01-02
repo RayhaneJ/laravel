@@ -27,6 +27,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/users', [App\Http\Controllers\UserController::class, 'show'])->name('users');
+
+Route::delete('/users/delete', [App\Http\Controllers\UserController::class, 'destroy'])->name('usersDelete');
+
+Route::post('/archive', [App\Http\Controllers\ArchiveController::class, 'store'])->name('archive');
+
 Route::get('/candidature/{id}{stage}', [App\Http\Controllers\CandidatureController::class, 'show'])->name('candidatureProfile');
 
 Route::get('/stages', [App\Http\Controllers\StagesController::class, 'index'])->name('stages');

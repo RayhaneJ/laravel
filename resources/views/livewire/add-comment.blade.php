@@ -1,6 +1,8 @@
 <div>
+
 <form wire:submit.prevent="save" >
-    @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju'))
+@if(count($stagiaires->remarques) > 0)
+    @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') || Auth::user()->role === "admin")
     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
     @else
     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -26,8 +28,30 @@
           </ul>
         </dd>
       </div>
-
-      @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') )
+      @else 
+      @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') || Auth::user()->role === "admin")
+    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+    @else
+    <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+    @endif 
+        <dt class="text-sm font-medium text-gray-500">
+          Remarques du stage
+        </dt>
+        <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+          <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
+              <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+              <div class="w-0 flex-1 flex items-center">
+                <!-- Heroicon name: paper-clip -->
+                <span class="ml-2 flex-1 w-0 truncate">
+                  Il n'existe pas encore de remarques pour ce stage.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </dd>
+      </div>
+      @endif
+      @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') || Auth::user()->role === "admin")
       <div class="bg-white px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
       @elseif(Auth::user()->hasRole('et') || Auth::user()->role = "tu")
           <div class="bg-gray-50 px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -48,7 +72,7 @@
             </div>
             </div>
           </div>
-          @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju'))
+          @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') || Auth::user()->role === "admin")
           <div class="px-4 py-3 bg-white text-right sm:px-6 ">
               @elseif(Auth::user()->hasRole('et') || Auth::user()->role = "tu")
               <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 ">
@@ -63,4 +87,5 @@
             
           </div>
 </form>
+
 </div>
