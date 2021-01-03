@@ -8,9 +8,9 @@
       <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);" x-show="open" >
 
         <!-- A basic modal dialog with title, body and one button to close -->
-        <div class="container px-3 max-w-md mx-auto pb-4"  @click.away="open = false">
+        <div class="container px-3 max-w-md mx-auto pb-4 "  @click.away="open = false">
     <!-- todo wrapper -->
-    <div class="bg-white rounded shadow px-4 pt-4 pb-4">
+    <div class="bg-white rounded  px-4 pt-4 pb-4">
       <div class="flex flex-row">
       <div class="title font-bold text-lg">Ajouter des tâches</div>
       <div class="flex items-center" id="resultAjoute">
@@ -57,7 +57,7 @@
         </h2>
     </x-slot>
 
-    <div class="flex justify-between container mx-auto">
+    <div class="flex justify-between container mx-auto shadow-xl" >
             <div class="w-full lg:w-12/12">
             <div class="py-12">
               
@@ -251,14 +251,14 @@
                 @if(Auth::user()->hasRole('en'))
                 <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
+        <div class="md:text-3xl text-3xl font-medium">Aucun stagiaires</div>
         <div class="text-xl font-normal mt-4">Vous n'avez pas encore de stagiaires, n'attendez plus et commencez à recruter des stagiaires dès
         aujourd'hui.
         </div>
         <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('candidatures') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
-        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
-        Consultez candidatures.
+        <a href="{{ route('candidatures') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
+        cursor-pointer bg-indigo-600 rounded text-lg tr-mt  svelte-jqwywd">
+        Chercher candidatures
         </a>
         </div>
     </div>
@@ -266,21 +266,15 @@
 @elseif(Auth::user()->hasRole('tu'))
 <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
+        <div class="md:text-3xl text-3xl font-medium">Aucun stagiaires</div>
         <div class="text-xl font-normal mt-4">Vous n'êtes pas encore responsable de stagiaires, revenez plus tard.
-        </div>
-        <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('dashboard') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
-        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
-        Consultez candidatures.
-        </a>
         </div>
     </div>
 </div>
 @elseif(Auth::user()->hasRole('admin'))
 <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucun stagiaires</div>
+        <div class="md:text-3xl text-3xl font-medium">Aucun stagiaires</div>
         <div class="text-xl font-normal mt-4">Il n'existe pas encore de staigiaires, revenez plus tard.
         </div>
         

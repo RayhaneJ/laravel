@@ -11,7 +11,7 @@
     
     
 
-    <div class="py-12">
+    <div class="py-12 min-h-screen min-w-full">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 <!-- This example requires Tailwind CSS v2.0+ -->
@@ -20,19 +20,19 @@
   @else 
   <div class="bg-white shadow overflow-hidden sm:rounded-lg">
   @endif
-  <div class="px-4 py-5 sm:px-6">
+  <div class="px-4 py-5 sm:px-6 ">
     <h3 class="text-lg leading-6 font-medium text-gray-900">
       Informations
     </h3>
     <p class="mt-1 max-w-2xl text-sm text-gray-500">
-      Détails personnels et relative à la candidature
+      Détails personnels concernant la candidature.
     </p>
   </div>
   <div class="border-t border-gray-200">
     <dl>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Intitule
+          Nom
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           {{ $stagiaires->etudiant['nom'] }} {{ $stagiaires->etudiant['nom'] }}
@@ -40,7 +40,7 @@
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Candidature pour 
+          Intitule poste 
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           {{ $stagiaires->stage['titre_stage']}}
@@ -48,7 +48,7 @@
       </div>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Email address
+          Email
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
           {{$stagiaires->etudiant->user['email']}}
@@ -56,10 +56,10 @@
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Salary expectation
+          Téléphone
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          $120,000
+        {{$stagiaires->etudiant->user['no_tel']}}
         </dd>
       </div>
       <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -67,7 +67,7 @@
           A propos
         </dt>
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-          Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+        {{$stagiaires->etudiant->user['no_tel']}}
         </dd>
       </div>
       <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

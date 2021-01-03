@@ -10,11 +10,12 @@
         </h2>
     </x-slot>
 
-    <div class="flex justify-between container mx-auto">
+    <div class="flex justify-between shadow-xl container mx-auto">
             <div class="w-full lg:w-12/12">
             <div class="py-12">
             <!-- component -->
 <!-- This is an example component -->
+
 @if(count($missions)>0)
 <div class="min-h-screen bg-gray-100">
             
@@ -102,13 +103,13 @@
         @else
         <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucunes missions</div>
-        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de missions, n'attendez plus et contactez votre entreprise ou tuteur !.
+        <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
+        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de missions, n'attendez plus et contactez votre entreprise ou tuteur.
         </div>
         <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('candidatures') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
-        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
-        Consultez candidatures.
+        <a href="{{ route('candidatures') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
+        cursor-pointer bg-indigo-600 rounded text-lg tr-mt  svelte-jqwywd">
+        Contacter entreprise
         </a>
         </div>
     </div>

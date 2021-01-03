@@ -1,7 +1,7 @@
 <form wire:submit.prevent="save" >
       <div class="bg-gray-50 px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
         <dt class="text-sm font-medium text-gray-500">
-          Upload documents
+          Déposer document
         </dt>
 
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -13,13 +13,13 @@
                   </svg>
                   <div class="flex text-sm text-gray-600">
                     <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                      <span>Upload a file</span>
+                      <span>Dépose un fichier</span>
                       <input wire:model="file" id="file-upload" name="file-upload" type="file" class="sr-only">
                     </label>
-                    <p class="pl-1">or drag and drop</p>
+                    <p class="pl-1">ou drag and drop</p>
                   </div>
                   <p class="text-xs text-gray-500">
-                    PNG, JPG, GIF up to 10MB
+                    PNG, JPG, PDF
                   </p>
                 </div>
               </div>
@@ -27,11 +27,11 @@
           </div>
           <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 ">
           <x-jet-action-message class="inline-flex justify-center py-2 px-4  text-sm font-medium" on="saved">
-            {{ __('Saved.') }}
+            {{ __('Sauvegarder.') }}
         </x-jet-action-message>
         <x-jet-input-error for="file" class="inline-flex justify-center py-2 px-4  text-sm font-medium" />
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Save
+              Sauvegarde
             </button>
             
           </div>

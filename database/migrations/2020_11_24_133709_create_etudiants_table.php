@@ -19,6 +19,7 @@ class CreateEtudiantsTable extends Migration
             $table->string('cv')->nullable();
             $table->string('lettre_motiv')->nullable();
             $table->string('classe');
+            $table->string('description');
             $table->string('prenom');
             $table->string('nom');
             $table->string('dt_naiss');

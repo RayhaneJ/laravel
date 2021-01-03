@@ -40,6 +40,15 @@ class Etudiant extends Model
         return $this->hasOne(Stagiaire::class, 'no_nanterre');
     }
 
+    public function hasStage(){
+        if(Stagiaire::where('no_nanterre', $this->no_nanterre)->exists()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 
     /**
      * Update the user's profile photo.

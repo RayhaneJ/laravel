@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -57,10 +57,13 @@
                                 {{ __('Stages') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('mescandidatures') }}">
-                                {{ __('Mes candidatures') }}
+                            <x-jet-dropdown-link href="{{ route('monStage') }}">
+                                {{ __('Mon stage') }}
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('mesCandidaturesRetenues') }}">
+                                {{ __('Candidatures') }}
+                            </x-jet-dropdown-link>
                         @endif
 
                         @if (Auth::user()->hasRole('en'))
@@ -70,6 +73,10 @@
 
                             <x-jet-dropdown-link href="{{ route('candidatures') }}">
                                 {{ __('Candidatures') }}
+                            </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('stagiaires') }}">
+                                {{ __('Stagiaires') }}
                             </x-jet-dropdown-link>
                         @endif
 
@@ -121,7 +128,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Se deconnecter') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>

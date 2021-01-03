@@ -24,6 +24,6 @@ class Entreprise extends Model
     ];
 
     public function user(){
-        return $this->belongsTo('App\Models\User', 'no_nanterre');
+        return $this->belongsTo('App\Models\User', 'id_entreprise');
     }
 }

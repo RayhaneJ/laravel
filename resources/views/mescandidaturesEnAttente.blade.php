@@ -14,6 +14,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
 <!-- component -->
+@if(Auth::user()->etudiant->hasStage() == false)
 @if(count($candidaturesAttente) > 0)
 <div class="bg-gray-100 overflow-x-hidden">
     <div class="px-6 py-8">
@@ -67,22 +68,30 @@
 
 </div>
 @else 
-<div class="flex bg-gray-100 py-24 justify-center">
-    <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucunes candidatures retenues</div>
+<div class="flex bg-gray-100 py-24  justify-center">
+    <div class=" text-center w-2/4">
+        <div class="md:text-3xl text-3xl font-medium">Aucunes candidatures retenues</div>
         <div class="text-xl font-normal mt-4">Vous n'avez pas encore de candidature retenues, n'attendez plus et commencez à postulez dès
         aujourd'hui.
         </div>
         <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('stages') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
-        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
+        <a href="{{ route('stages') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
+        cursor-pointer bg-indigo-600 rounded text-lg tr-mt  svelte-jqwywd">
         Cherche un stage
         </a>
         </div>
     </div>
 </div>
 @endif
-
+@else 
+<div class="flex bg-gray-100 py-24 justify-center">
+    <div class="text-center w-2/4">
+        <div class="md:text-3xl text-3xl font-medium">Vous êtes déja associé à un stage</div>
+        <div class="text-xl font-normal mt-4">Vous ne pouvez pas accéder à ces fonctionalités.
+        </div>
+    </div>
+</div>
+@endif
 
 
             </div>

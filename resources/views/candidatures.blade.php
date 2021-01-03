@@ -10,7 +10,7 @@
     </x-slot>
 
     <div class="flex justify-between container mx-auto">
-            <div class="w-full lg:w-12/12">
+            <div class="w-full lg:w-12/12 shadow-xl">
             
     <div class="py-12">
       @if(count($candidatures)>0)
@@ -83,13 +83,13 @@
                 @else 
                 <div class="flex bg-gray-100 py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucunes candidatures</div>
-        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de candidats, n'attendez plus et commencez à ajouter des candidatures
+        <div class="md:text-3xl text-3xl font-medium">Aucunes candidatures</div>
+        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de candidats, n'attendez plus et commencez à ajouter des candidatures 
         aujourd'hui.
         </div>
         <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('createStage') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
-        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
+        <a href="{{ route('createStage') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
+        cursor-pointer bg-indigo-600 rounded text-lg tr-mt  svelte-jqwywd">
         Ajouter candidature
         </a>
         </div>

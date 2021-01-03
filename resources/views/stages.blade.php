@@ -14,6 +14,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 
 <!-- component -->
+@if(Auth::user()->etudiant->hasStage() == false)
 @if(count($stages) > 0)
 <div class="bg-gray-100 overflow-x-hidden">
     <div class="px-6 py-8">
@@ -21,18 +22,13 @@
             <div class="w-full lg:w-12/12">
                 <div class="flex items-center justify-between">
                     <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Les offres de stages</h1>
-                    <div>
-                        <select class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                            <option>Latest</option>
-                            <option>Last Week</option>
-                        </select>
-                    </div>
                 </div>
                 @foreach ($stages as $stage)
                     <div class="mt-6">
                     <div class="max-w-4xl px-10 py-6 bg-white rounded-lg shadow-md">
-                        <div class="flex justify-between items-center"><span class="font-light text-gray-600">Jun 1,
-                                2020</span><a href="#"
+                        <div class="flex justify-between items-center">
+                            <span class="font-light text-gray-600">
+                                {{ $stage->created_at->format('d M, Y') }}</span><a href="#"
                                 class="px-2 py-1 bg-gray-600 text-gray-100 font-bold rounded hover:bg-gray-500">Laravel</a>
                         </div>
                         <div class="mt-2"><a href="#" class="text-2xl text-gray-700 font-bold hover:underline">
@@ -75,9 +71,8 @@
                         </form>
                         @endif
                             <div><a href="#" class="flex items-center"><img
-                                        src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=731&amp;q=80"
-                                        alt="avatar" class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block">
-                                    <h1 class="text-gray-700 font-bold hover:underline">{{ $stage->entreprise['id_entreprise'] }}</h1>
+                            src="{{ $stage->entreprise->user['profile_photo_url'] }}" alt="{{ $stage->entreprise->user['email'] }}" class="mx-4 w-10 h-10 object-cover rounded-full hidden sm:block">
+                                    <h1 class="text-gray-700 font-bold hover:underline">{{ $stage->entreprise->user['email'] }}</h1>
                                 </a></div>
                         </div>
                     </div>
@@ -95,9 +90,18 @@
 </div>
 @else 
 <div class="flex bg-gray-100 py-24 justify-center">
-    <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucunes offre de stage</div>
+    <div class="text-center w-2/4">
+        <div class="md:text-3xl text-3xl font-medium">Aucunes offre de stage</div>
         <div class="text-xl font-normal mt-4">Aucun entreprise n'a encore déposez d'offre de stage, revenez plus tard.
+        </div>
+    </div>
+</div>
+@endif
+@else 
+<div class="flex bg-gray-100 py-24 justify-center">
+    <div class="text-center w-2/4">
+        <div class="md:text-3xl text-3xl font-medium">Vous êtes déja associé à un stage</div>
+        <div class="text-xl font-normal mt-4">Vous ne pouvez pas accéder à ces fonctionalités
         </div>
     </div>
 </div>

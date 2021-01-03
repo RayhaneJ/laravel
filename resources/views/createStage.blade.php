@@ -21,7 +21,7 @@
 
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl shadow-xl mx-auto sm:px-6 lg:px-8">
 
 <div class="mt-10 sm:mt-0">
   <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -34,7 +34,7 @@
       </div>
     </div>
     <div class="mt-5 md:mt-0 md:col-span-2">
-      <form action="{{ route('storeStage') }}" method="POST">
+      <form action="{{ route('storeStage') }}" method="POST" class="pb-5">
       @csrf
       <input type="hidden" name="id_entreprise" value="{{Auth::user()->id}}"/>
         <div class="shadow overflow-hidden sm:rounded-md">

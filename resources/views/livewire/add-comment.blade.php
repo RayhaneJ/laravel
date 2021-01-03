@@ -52,12 +52,12 @@
       </div>
       @endif
       @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') || Auth::user()->role === "admin")
-      <div class="bg-white px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+      <div class="bg-white px-4 pt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
       @elseif(Auth::user()->hasRole('et') || Auth::user()->role = "tu")
-          <div class="bg-gray-50 px-4 pt-5 pb-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+          <div class="bg-gray-50 px-4 pt-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
           @endif 
         <dt class="text-sm font-medium text-gray-500">
-          Remarques
+          Ajouter remarque
         </dt>
 
         <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -75,14 +75,14 @@
           @if(Auth::user()->hasRole('en') || Auth::user()->hasRole('ju') || Auth::user()->role === "admin")
           <div class="px-4 py-3 bg-white text-right sm:px-6 ">
               @elseif(Auth::user()->hasRole('et') || Auth::user()->role = "tu")
-              <div class="px-4 py-3 bg-gray-50 text-right sm:px-6 ">
+              <div class="px-4 bg-gray-50 text-right sm:px-6 ">
                   @endif
           <x-jet-action-message class="inline-flex justify-center py-2 px-4  text-sm font-medium" on="saved">
-            {{ __('Saved.') }}
+            {{ __('Sauvegarder.') }}
         </x-jet-action-message>
         <x-jet-input-error for="remarque" class="inline-flex justify-center py-2 px-4  text-sm font-medium" />
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Save
+              Sauvegarde
             </button>
             
           </div>
