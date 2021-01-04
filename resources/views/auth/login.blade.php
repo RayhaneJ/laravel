@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -17,30 +20,30 @@
 
             <div>
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                <x-jet-input id="email" class="mt-1 block w-full appearance-none rounded relative block w-full px-2 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-label for="password" value="{{ __('Mot de passe') }}" />
+                <x-jet-input id="password" class="mt-1 block w-full appearance-none rounded relative block w-full px-2 py-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
                 <label for="remember_me" class="flex items-center">
                     <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-600">{{ __('Se souvenir de moi') }}</span>
                 </label>
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
+                        {{ __('Mot de passe oublié ?') }}
                     </a>
                 @endif
 
                 <x-jet-button class="ml-4">
-                    {{ __('Login') }}
+                    {{ __('Se connecter') }}
                 </x-jet-button>
             </div>
         </form>

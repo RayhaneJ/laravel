@@ -3,15 +3,13 @@
 
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Mon stage') }}
-        </h2>
-    </x-slot>
+  <x-slot name="header">
+    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+      {{ __('Mon stage') }}
+    </h2>
+  </x-slot>
 
-    
-
-    <div class="py-14 px-6 lg:px-8 xl:px-8 shadow-xl">
+  <div class="py-14 px-6 lg:px-8 xl:px-8 shadow-xl">
     @if (isset($stagiaires) > 0)
     <div class="lg:text-center ">
       <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
@@ -21,8 +19,8 @@
         C'est ici que vous retrouverez tout les détails de votre stage ainsi que les tâches attribuées par votre entreprise.
       </p>
     </div>
-      <!-- component -->
-<!-- <div class="w-full">
+    <!-- component -->
+    <!-- <div class="w-full">
   <div class="flex">
     <div class="w-1/3">
       <div class="relative mb-2">
@@ -99,84 +97,78 @@
     </div>
   </div>
 </div> -->
-        <div class="max-w-7xl mx-auto px-2">
-            <div class="overflow-hidden  sm:rounded-lg">
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="py-12">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
+    <div class="max-w-7xl mx-auto px-2">
+      <div class="overflow-hidden  sm:rounded-lg">
+        <!-- This example requires Tailwind CSS v2.0+ -->
+        <div class="py-12">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <div class="mt-10">
-      <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-              <!-- Heroicon name: globe-alt -->
-              <svg class="h-6 w-6"s xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
+
+            <div class="mt-10">
+              <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <!-- Heroicon name: globe-alt -->
+                      <svg class="h-6 w-6" s xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <a href="{{ route('viewDetails', ['id'=> $stagiaires->no_nanterre]) }}">
+                      <dt class="text-lg leading-6 font-medium text-gray-900">
+                        Détails
+                      </dt>
+                    </a>
+                    <dd class="mt-2 text-base text-gray-500">
+                      Consultez les détails de votre stage, et ajoutez les documents relative à celui-ci.
+                    </dd>
+                  </div>
+                </div>
+
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                      <!-- Heroicon name: scale -->
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <a href="{{ route('missions', ['id_stagiaire'=> $stagiaires->id_stagiaire]) }}">
+                      <dt class="text-lg leading-6 font-medium text-gray-900">
+                        Tâches
+                      </dt>
+                    </a>
+                    <dd class="mt-2 text-base text-gray-500">
+                      Consultez vos tâches que l'on vous à attribuez durant votre stage.
+                    </dd>
+                  </div>
+                </div>
+
+              </dl>
             </div>
           </div>
-          <div class="ml-4">
-            <a href="{{ route('viewDetails', ['id'=> $stagiaires->no_nanterre]) }}">
-            <dt class="text-lg leading-6 font-medium text-gray-900">
-              Détails
-            </dt>
-            </a>
-            <dd class="mt-2 text-base text-gray-500">
-              Consultez les détails de votre stage, et ajoutez les documents relative à celui-ci.
-            </dd>
-          </div>
         </div>
-
-        <div class="flex">
-          <div class="flex-shrink-0">
-            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-              <!-- Heroicon name: scale -->
-              <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-</svg>
-            </div>
-          </div>
-          <div class="ml-4">
-          <a href="{{ route('missions', ['id_stagiaire'=> $stagiaires->id_stagiaire]) }}">
-            <dt class="text-lg leading-6 font-medium text-gray-900">
-              Tâches
-            </dt>
-            </a>
-            <dd class="mt-2 text-base text-gray-500">
-              Consultez vos tâches que l'on vous à attribuez durant votre stage.
-            </dd>
-          </div>
-        </div>
-
-      </dl>
+      </div>
     </div>
-  </div>
-</div>
-
-
-
-
-            </div>
-        </div>
-        @else 
-<div class="flex bg-gray-100 py-24 px-16 justify-center">
-    <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-bold">Aucun stages</div>
-        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de stage, n'attendez plus et commencez à postulez dès 
-        aujourd'hui.
+    @else
+    <div class="flex bg-gray-100 py-24 px-16 justify-center">
+      <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-medium">Aucun stages</div>
+        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de stage, n'attendez plus et commencez à postulez dès
+          aujourd'hui.
         </div>
         <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('stages') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-green-100
-        cursor-pointer bg-green-600 rounded text-lg tr-mt  svelte-jqwywd">
-        Découvrir les offres
-        </a>
+          <a href="{{ route('stages') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
+        cursor-pointer bg-indigo-600 rounded text-lg tr-mt  svelte-jqwywd">
+            Découvrir les offres
+          </a>
         </div>
+      </div>
     </div>
-</div>
-@endif
-    </div>
+    @endif
+  </div>
 </x-app-layout>
-
-	

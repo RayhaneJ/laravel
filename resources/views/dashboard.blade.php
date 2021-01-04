@@ -10,12 +10,13 @@
   </x-slot>
 
   @if (\Session::has('success'))
-  <div class="alert alert-success" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-    <ul>
-      <li>{!! \Session::get('success') !!}</li>
-    </ul>
-  </div>
-  @endif
+  <div class="fixed top-0 w-full text-white px-6 py-4 border-0 rounded mb-4 bg-green-500"  x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+  <span class="inline-block align-middle mr-8">{!! \Session::get('success') !!}
+  </span>
+</div>
+@endif
+
+
 
   <div class="py-12 ">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -49,7 +50,6 @@
                     <a href="{{ route('stages') }}">
                       <dt class="text-lg leading-6 font-medium text-gray-900">
                         Les offres de stages
-
                       </dt>
                     </a>
                     <dd class="mt-2 text-base text-gray-500">

@@ -7,11 +7,11 @@
   <!-- Dialog (full screen) -->
   <div class="absolute top-0 left-0 flex items-center justify-center w-full h-full" style="background-color: rgba(0,0,0,.5);" x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90">
     <!-- A basic modal dialog with title, body and one button to close -->
-    <div class="container px-4 max-w-md mx-auto pb-4 " @click.away="open = false"   >
+    <div class="container px-4 max-w-md mx-auto pb-4 " @click.away="open = false">
       <!-- todo wrapper -->
       <div class="bg-white rounded  px-4 pt-4 pb-4">
         <div class="flex flex-row">
-          <div class="title font-bold text-lg">Ajouter des tâches</div>
+          <div class="title font-bold text-medium">Ajouter des tâches</div>
           <div class="flex items-center" id="resultAjoute">
             <div class="capitalize ml-3 text-sm font-semibold">Tâche ajoutée</div>
           </div>
@@ -27,8 +27,8 @@
           </button>
           <span>Ajoutez tâche</span>
         </div>
-        <input type="text" placeholder="Intitulé tâche" class=" rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-4" id="todoTitle">
-        <input type="text" placeholder="Description tâche" class=" rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-2 mb-2" id="todoDesc">
+        <input type="text" placeholder="Intitulé tâche" class=" rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-4 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" id="todoTitle">
+        <textarea type="text" placeholder="Description tâche" name="about" rows="5" id="todoDesc" class="rounded-sm shadow-sm px-4 py-2 border border-gray-200 w-full mt-2 mb-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"></textarea>
       </div>
     </div>
   </div>
@@ -214,9 +214,9 @@
                         </td>
                         @endif
                         @if (Auth::user()->hasRole('en'))
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a data-id="{{ $stagiaire->id_stagiaire }}" class="modalTache" x-on:click="open = true" class="text-indigo-600 hover:text-indigo-900 cursor-pointer">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <td class="px-6 py-4">
+                          <a data-id="{{ $stagiaire->id_stagiaire }}" class="modalTache" x-on:click="open = true" >
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="text-indigo-600 hover:text-indigo-900 cursor-pointer">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                           </a>

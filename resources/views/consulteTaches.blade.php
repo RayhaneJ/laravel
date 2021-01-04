@@ -11,122 +11,122 @@
     </x-slot>
 
     <div class="flex justify-between shadow-xl container mx-auto">
-            <div class="w-full lg:w-12/12">
+        <div class="w-full lg:w-12/12">
             <div class="py-12">
-            <!-- component -->
-<!-- This is an example component -->
+                <!-- component -->
+                <!-- This is an example component -->
 
-@if(count($missions)>0)
-<div class="min-h-screen bg-gray-100">
-            
-    <div class="min-h-screen flex justify-center">
-        <div class="w-2/3 mx-auto">
-            
-    <!-- left col -->
-    @foreach($missions as $mission) 
-      @if($loop->iteration % 2 === 0) 
-      <div class="flex flex-row w-full">
-    <!-- left col -->
+                @if(count($missions)>0)
+                <div class="min-h-screen bg-gray-100">
 
-    <div class="w-2/5 px-2 py-10">
+                    <div class="min-h-screen flex justify-center">
+                        <div class="w-2/3 mx-auto">
 
-    </div>
-    <!--line column-->
-    <div class="w-1/5  flex justify-center">
-        <div class="relative flex h-5/6 w-1 bg-gray-800 items-center justify-center text-white font-semibold text-lg">
-        <div class="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 bg-gray-800 leading-none text-center z-10">
-                <div>{{ $mission->created_at->format('d') }}</div>
-                <div>{{ $mission->created_at->format('M') }}</div>
-            </div>
-        </div>
-    </div>
-    <!--right column-->
-    <div class="w-2/5 px-2 py-10 m-auto">
-        <div class="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
-            <div class="text-gray-600 mb-2 flex justify-between">
-            <div class="flex flex-col">
-            {{ $mission->user['email'] }}
-                <div class="font-bold">
-                    {{ $mission->titre_mission }}
+                            <!-- left col -->
+                            @foreach($missions as $mission)
+                            @if($loop->iteration % 2 === 0)
+                            <div class="flex flex-row w-full">
+                                <!-- left col -->
+
+                                <div class="w-2/5 px-2 py-10">
+
+                                </div>
+                                <!--line column-->
+                                <div class="w-1/5  flex justify-center">
+                                    <div class="relative flex h-5/6 w-1 bg-gray-800 items-center justify-center text-white font-semibold text-lg">
+                                        <div class="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 bg-gray-800 leading-none text-center z-10">
+                                            <div>{{ $mission->created_at->format('d') }}</div>
+                                            <div>{{ $mission->created_at->format('M') }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--right column-->
+                                <div class="w-2/5 px-2 py-10 m-auto">
+                                    <div class="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
+                                        <div class="text-gray-600 mb-2 flex justify-between">
+                                            <div class="flex flex-col">
+                                                {{ $mission->user['email'] }}
+                                                <div class="font-bold">
+                                                    {{ $mission->titre_mission }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-gray-600">
+                                            {{ $mission->mission }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @else
+                            <div class="flex flex-row w-full">
+                                <!-- left col -->
+
+                                <div class="w-2/5 px-2 py-10 m-auto">
+                                    <div class="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
+                                        <div class="text-gray-600 mb-2 flex justify-between">
+                                            <div class="flex flex-col">
+                                                {{ $mission->user['email'] }}
+                                                <div class="font-bold">
+                                                    {{ $mission->titre_mission }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-gray-600">
+                                            {{ $mission->mission }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--line column-->
+                                <div class="w-1/5  flex justify-center">
+                                    <div class="relative flex h-5/6 w-1 bg-gray-700 border-opacity-20 border-gray-700 items-center justify-center text-white">
+                                        <div class="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 bg-gray-800 leading-none text-center z-10">
+                                            <div>{{ $mission->created_at->format('d') }}</div>
+                                            <div>{{ $mission->created_at->format('M') }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--right column-->
+                                <div class="w-2/5 px-2 py-10 ">
+
+                                </div>
+                            </div>
+                            @endif
+                            @endforeach
+
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-            </div>
-            <div class="text-gray-600">
-            {{ $mission->mission }}
-            </div>
-        </div>
-    </div>
-</div>
-      @else
-      <div class="flex flex-row w-full">
-    <!-- left col -->
-
-    <div class="w-2/5 px-2 py-10 m-auto">
-        <div class="flex flex-col w-full rounded-lg shadow bg-white px-4 py-5">
-            <div class="text-gray-600 mb-2 flex justify-between">
-            <div class="flex flex-col">
-            {{ $mission->user['email'] }}
-                <div class="font-bold">
-                    {{ $mission->titre_mission }}
-                </div>
-            </div>
-            </div>
-            <div class="text-gray-600">
-            {{ $mission->mission }}
-            </div>
-        </div>
-
-    </div>
-    <!--line column-->
-    <div class="w-1/5  flex justify-center">
-        <div class="relative flex h-5/6 w-1 bg-gray-700 border-opacity-20 border-gray-700 items-center justify-center text-white">
-            <div class="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 bg-gray-800 leading-none text-center z-10">
-                <div>{{ $mission->created_at->format('d') }}</div>
-                <div>{{ $mission->created_at->format('M') }}</div>
-            </div>
-        </div>
-    </div>
-    <!--right column-->
-    <div class="w-2/5 px-2 py-10 ">
-
-    </div>
-</div>
-      @endif
-@endforeach
-
-        </div>
-    </div>
-
-        </div>
-        @else
-        @if(Auth::user()->hasRole('et'))
-        <div class="flex  py-24 justify-center">
-    <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
-        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de missions, n'attendez plus et contactez votre entreprise ou tuteur.
-        </div>
-        <div class="mt-6 flex justify-center h-12 relative">
-        <a href="{{ route('candidatures') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
+                @else
+                @if(Auth::user()->hasRole('et'))
+                <div class="flex  py-24 justify-center">
+                    <div class="p-12 text-center max-w-2xl">
+                        <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
+                        <div class="text-xl font-normal mt-4">Vous n'avez pas encore de missions, n'attendez plus et contactez votre entreprise ou tuteur.
+                        </div>
+                        <div class="mt-6 flex justify-center h-12 relative">
+                            <a href="{{ route('candidatures') }}" class="flex shadow-md font-medium absolute py-2 px-4 text-white
         cursor-pointer bg-indigo-600 rounded text-lg tr-mt  svelte-jqwywd">
-        Contacter entreprise
-        </a>
-        </div>
-    </div>
-</div>
-@else
-<div class="flex  py-24 justify-center">
-    <div class="p-12 text-center max-w-2xl">
-        <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
-        <div class="text-xl font-normal mt-4">Le stagiaire n'a pas encore de missions.
-        </div>
-    </div>
-</div>
-@endif
-@endif
+                                Contacter entreprise
+                            </a>
+                        </div>
+                    </div>
                 </div>
-</div>
-</div>
+                @else
+                <div class="flex  py-24 justify-center">
+                    <div class="p-12 text-center max-w-2xl">
+                        <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
+                        <div class="text-xl font-normal mt-4">Le stagiaire n'a pas encore de missions.
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endif
             </div>
         </div>
+    </div>
+    </div>
+    </div>
     </div>
 </x-app-layout>

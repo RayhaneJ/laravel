@@ -61,28 +61,28 @@
 							</div>
 						</div>
 						<div x-show.transition.in="step === 2 && (role==='et' || role==='tu' || role==='ju')" class="space-y-4">
-							<div class="rounded-md grid grid-flow-col auto-cols-max flex justify-between">
+							<div class="rounded-md flex space-x-2 justify-between">
 								<div>
 									<label for="nom" class="sr-only">Nom</label>
-									<input id="nom" name="nom" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nom">
+									<input id="nom" name="nom" class="flex-shrink md:flex-shrink-0  appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nom">
 								</div>
 								<div>
 									<label for="prenom" class="sr-only">Prenom</label>
-									<input id="prenom" name="prenom" type="prenom" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Prénom">
+									<input id="prenom" name="prenom" type="prenom" class="flex-shrink md:flex-shrink-0  appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Prénom">
 								</div>
 							</div>
-							<div class="rounded-md grid grid-flow-col auto-cols-max flex justify-between">
+							<div class="rounded-md flex space-x-2 justify-between">
 								<div>
 									<label for="date" class="sr-only">Date</label>
-									<input id="date" name="date" type="date" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Date">
+									<input id="date" placeholder="01/01/2021" name="date" type="date" class="flex-shrink md:flex-shrink-0  appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Date">
 								</div>
 								<div x-show.transition.in="step === 2 && role==='et'">
 									<label for="classe" class="sr-only">Classe</label>
-									<input id="classe" name="classe" type="classe" class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Classe">
+									<input id="classe" name="classe" type="classe" class="flex-shrink md:flex-shrink-0  appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Classe">
 								</div>
 								<div x-show.transition.in="step === 2 && (role==='ju' || role==='tu')">
 									<label for="statut" class="sr-only">Statut</label>
-									<input id="statut" name="statut"  class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Statut">
+									<input id="statut" name="statut"  class="flex-shrink md:flex-shrink-0  appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Statut">
 								</div>
 							</div>
 							<div>

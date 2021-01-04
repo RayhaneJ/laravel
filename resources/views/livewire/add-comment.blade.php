@@ -64,7 +64,7 @@
         <div>
         <div>
               <div class="mt-1">
-                <textarea wire:model="remarque" id="about" name="about" rows="5" class="shadow-sm focus focus:ring-indigo-600 focus:border-indigo-500 mt-1 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+                <textarea wire:model="remarque" id="about" name="about" rows="5" class="appearance-none h-24 rounded resize relative block w-full px-2  border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"></textarea>
               </div>
               <p class="mt-2 text-sm text-gray-500">
                 Ajouter des remarques sur le stage.
