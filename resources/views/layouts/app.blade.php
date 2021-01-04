@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.js" defer></script>
     </head>
     <body class="font-sans antialiased ">
-        <div class="bg-gray-100 flex flex-col min-h-screen">
+        <div class="bg-gray-100  min-h-screen">
             @livewire('navigation-dropdown')
 
             <!-- Page Heading
@@ -30,7 +30,7 @@
             </header> -->
 
             <!-- Page Content -->
-            <main class="m-auto min-w-full">
+            <main class=" min-w-full">
                 {{ $slot }}
             </main>
         </div>

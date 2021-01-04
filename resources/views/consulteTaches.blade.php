@@ -33,7 +33,7 @@
     </div>
     <!--line column-->
     <div class="w-1/5  flex justify-center">
-        <div class="relative flex h-full w-1 bg-gray-800 items-center justify-center text-white font-semibold text-lg">
+        <div class="relative flex h-5/6 w-1 bg-gray-800 items-center justify-center text-white font-semibold text-lg">
         <div class="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 bg-gray-800 leading-none text-center z-10">
                 <div>{{ $mission->created_at->format('d') }}</div>
                 <div>{{ $mission->created_at->format('M') }}</div>
@@ -79,13 +79,11 @@
     </div>
     <!--line column-->
     <div class="w-1/5  flex justify-center">
-        <div class="relative flex h-full w-1 bg-gray-700 border-opacity-20 border-gray-700 items-center justify-center">
-        <div class="relative flex h-full w-1 bg-gray-800 items-center justify-center text-white font-semibold text-lg">
+        <div class="relative flex h-5/6 w-1 bg-gray-700 border-opacity-20 border-gray-700 items-center justify-center text-white">
             <div class="absolute flex flex-col justify-center h-24 w-24 rounded-full border-2 bg-gray-800 leading-none text-center z-10">
                 <div>{{ $mission->created_at->format('d') }}</div>
                 <div>{{ $mission->created_at->format('M') }}</div>
             </div>
-        </div>
         </div>
     </div>
     <!--right column-->
@@ -101,6 +99,7 @@
 
         </div>
         @else
+        @if(Auth::user()->hasRole('et'))
         <div class="flex  py-24 justify-center">
     <div class="p-12 text-center max-w-2xl">
         <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
@@ -114,6 +113,15 @@
         </div>
     </div>
 </div>
+@else
+<div class="flex  py-24 justify-center">
+    <div class="p-12 text-center max-w-2xl">
+        <div class="md:text-3xl text-3xl font-medium">Aucunes missions</div>
+        <div class="text-xl font-normal mt-4">Le stagiaire n'a pas encore de missions.
+        </div>
+    </div>
+</div>
+@endif
 @endif
                 </div>
 </div>

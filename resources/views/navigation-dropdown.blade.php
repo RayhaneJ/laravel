@@ -16,8 +16,17 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Menu') }}
                     </x-jet-nav-link>
+                    @if(Auth::user()->hasRole('ju') || Auth::user()->hasRole('tu') || Auth::user()->hasRole('en')|| Auth::user()->hasRole('admin'))
+                    <x-jet-nav-link href="{{ route('stagiaires') }}" :active="request()->routeIs('stagiaires')">
+                        {{ __('Stagiaires') }}
+                    </x-jet-nav-link>
+                    @else 
+                    <x-jet-nav-link href="{{ route('monStage') }}" :active="request()->routeIs('monStage')">
+                        {{ __('Mon stage') }}
+                    </x-jet-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -79,6 +88,14 @@
                                 {{ __('Stagiaires') }}
                             </x-jet-dropdown-link>
                         @endif
+
+                        @if(Auth::user()->hasRole('ju') || Auth::user()->hasRole('tu'))
+                        <x-jet-dropdown-link href="{{ route('stagiaires') }}">
+                                {{ __('Stagiaires') }}
+                            </x-jet-dropdown-link>
+                        @endif
+
+
 
                         @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">

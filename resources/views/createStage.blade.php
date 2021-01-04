@@ -21,7 +21,7 @@
 
 
     <div class="py-12">
-        <div class="max-w-7xl shadow-xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-7xl  mx-auto sm:px-6 lg:px-8">
 
 <div class="mt-10 sm:mt-0">
   <div class="md:grid md:grid-cols-3 md:gap-6">
