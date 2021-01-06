@@ -74,7 +74,7 @@
                   </dt>
 
                   <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <ul class="border border-gray-200 rounded-md divide-y divide-gray-200">
+                    <ul class=" rounded-md divide-y divide-gray-200">
                       @if(isset($stagiaires->etudiant['cv']))
                       <li class="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
 

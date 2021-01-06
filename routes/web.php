@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -73,7 +74,16 @@ Route::post('/postule', [App\Http\Controllers\PostuleController::class, 'store']
 
 Route::delete('/postule/delete', [App\Http\Controllers\PostuleController::class, 'destroy'])->name('postuleDelete');
 
-Route::get('/chat/{id}' , App\Http\Livewire\ChatRoom::class);
+Route::get('send_test_email', function(){
+	Mail::raw('Sending emails with Mailgun and Laravel is easy!', function($message)
+	{
+		$message->to('jebbarirayhane@gmail.com');
+	});
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
 Route::get('/download/cv/{file}', function ($file='') {
     $filepath = public_path('storage/cv/').$file;

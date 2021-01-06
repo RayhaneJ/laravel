@@ -73,6 +73,10 @@
                             <x-jet-dropdown-link href="{{ route('mesCandidaturesRetenues') }}">
                                 {{ __('Candidatures') }}
                             </x-jet-dropdown-link>
+
+                            <x-jet-dropdown-link href="{{ route('contact') }}">
+                                {{ __('Contact') }}
+                            </x-jet-dropdown-link>
                         @endif
 
                         @if (Auth::user()->hasRole('en'))

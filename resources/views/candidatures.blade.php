@@ -31,7 +31,7 @@
                   <h2 class="text-xl font-medium text-gray-700"> {{ $candidature->etudiant['nom'] }} {{ $candidature->etudiant['prenom'] }}</h2>
                   <span class="text-blue-500 block mb-5">Front End Developer</span>
                   <form id="ajaxform">
-                    <a href="#" data-id="[{{ $candidature->id_stage }}, {{ $candidature->no_nanterre }}]" class="hire px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                    <a href="#" data-id="[{{ $candidature->id_stage }}, {{ $candidature->no_nanterre }}]" class="hire px-4 py-2 bg-blue-500 text-white rounded-full">Recruter</a>
                   </form>
                 </div>
               </div>
@@ -46,7 +46,7 @@
                   <h2 class="text-xl font-medium text-gray-700">{{ $candidature->etudiant['nom'] }} {{ $candidature->etudiant['prenom'] }}</h2>
                   <span class="text-blue-500 block mb-5">Front End Developer</span>
                   <form id="ajaxform">
-                    <a href="#" data-id="[{{ $candidature->id_stage }}, {{ $candidature->no_nanterre }}]" class="hire px-4 py-2 bg-blue-500 text-white rounded-full">Hire</a>
+                    <a href="#" data-id="[{{ $candidature->id_stage }}, {{ $candidature->no_nanterre }}]" class="hire px-4 py-2 bg-blue-500 text-white rounded-full">Recruter</a>
                   </form>
                 </div>
               </div>
@@ -97,13 +97,16 @@
   $('.hire').click(function(e) {
     e.preventDefault();
     var el = $(this);
+    console.log(el.attr('data-id')[1]);
+    console.log(el.attr('data-id')[5]);
+    var retrieved_array = JSON.parse(el.attr('data-id'));
     $.ajax({
       url: "/candidatures/attente",
       type: "POST",
       data: {
         _token: "{{ csrf_token() }}",
-        id_stage: el.attr('data-id')[1],
-        no_nanterre: el.attr('data-id')[4]
+        id_stage: retrieved_array[0],
+        no_nanterre: retrieved_array[1]
       },
       success: function(response) {
         location.reload();

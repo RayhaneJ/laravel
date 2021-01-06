@@ -36,7 +36,7 @@
   <div class="fixed bottom-0 right-0 mr-12 mb-8 ">
     <a href="{{ route('exportStudent', ['tuteurId' => Auth::user()->id]) }}">
       <div class="bg-white rounded-lg shadow-md px-4 py-2 border-1 border-gray-400">
-        Export CSV
+        Télécharger CSV
       </div>
     </a>
   </div>
